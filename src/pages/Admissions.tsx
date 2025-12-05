@@ -93,29 +93,29 @@ const Admissions = () => {
       </section>
 
       {/* Admission Process */}
-      <section className="py-16 bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-4">
               Admission Process
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
               Simple 5-step process to secure your admission
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-            {steps.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center w-40">
-                <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-3">
-                  {item.step}
+          {/* Scrollable steps on mobile */}
+          <div className="overflow-x-auto -mx-4 px-4 pb-4 md:pb-0 scrollbar-hide">
+            <div className="flex gap-3 md:gap-4 md:flex-wrap md:justify-center min-w-max md:min-w-0 max-w-5xl mx-auto">
+              {steps.map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center text-center w-32 md:w-40 shrink-0 md:shrink">
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-base md:text-xl mb-2 md:mb-3">
+                    {item.step}
+                  </div>
+                  <h3 className="font-heading text-xs md:text-sm font-bold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-[10px] md:text-xs">{item.desc}</p>
                 </div>
-                <h3 className="font-heading text-sm font-bold text-foreground mb-1">{item.title}</h3>
-                <p className="text-muted-foreground text-xs">{item.desc}</p>
-                {idx < steps.length - 1 && (
-                  <div className="hidden md:block absolute w-12 h-0.5 bg-primary/30 transform translate-x-24 translate-y-7"></div>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

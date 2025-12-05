@@ -109,19 +109,19 @@ const Facilities = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-gradient text-primary-foreground py-16">
+      <section className="hero-gradient text-primary-foreground py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Campus Facilities</h1>
-          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Campus Facilities</h1>
+          <p className="text-primary-foreground/80 text-base md:text-lg max-w-2xl mx-auto">
             Modern infrastructure and comprehensive amenities supporting academic excellence and holistic development
           </p>
         </div>
       </section>
 
       {/* Campus Overview */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-10 md:py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
             {[
               { label: "Campus Area", value: "5 Acres", icon: Building },
               { label: "Library Books", value: "10,000+", icon: BookOpen },
@@ -129,10 +129,10 @@ const Facilities = () => {
               { label: "Laboratories", value: "6+", icon: Microscope },
             ].map((stat, idx) => (
               <Card key={idx} className="text-center">
-                <CardContent className="pt-6">
-                  <stat.icon className="w-10 h-10 mx-auto text-primary mb-3" />
-                  <p className="text-3xl font-bold text-primary font-heading">{stat.value}</p>
-                  <p className="text-muted-foreground text-sm">{stat.label}</p>
+                <CardContent className="p-4 md:pt-6">
+                  <stat.icon className="w-8 h-8 md:w-10 md:h-10 mx-auto text-primary mb-2 md:mb-3" />
+                  <p className="text-2xl md:text-3xl font-bold text-primary font-heading">{stat.value}</p>
+                  <p className="text-muted-foreground text-xs md:text-sm">{stat.label}</p>
                 </CardContent>
               </Card>
             ))}
@@ -142,32 +142,32 @@ const Facilities = () => {
 
       {/* Facilities Grid */}
       {facilities.map((category, catIdx) => (
-        <section key={catIdx} className={`py-16 ${catIdx % 2 === 0 ? 'bg-background' : 'bg-muted/30'}`}>
+        <section key={catIdx} className={`py-10 md:py-16 ${catIdx % 2 === 0 ? 'bg-background' : 'bg-muted/30'}`}>
           <div className="container mx-auto px-4">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
+            <h2 className="font-heading text-xl md:text-2xl lg:text-3xl font-bold text-foreground text-center mb-6 md:mb-10">
               {category.category}
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
               {category.items.map((facility, idx) => (
                 <Card 
                   key={idx} 
                   className={`hover-lift ${facility.highlight ? 'border-gold border-2 bg-gold/5' : ''}`}
                 >
-                  <CardContent className="p-6">
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${
+                  <CardContent className="p-4 md:p-6">
+                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-3 md:mb-4 ${
                       facility.highlight ? 'bg-gold/20' : 'bg-primary/10'
                     }`}>
-                      <facility.icon className={`w-7 h-7 ${facility.highlight ? 'text-gold' : 'text-primary'}`} />
+                      <facility.icon className={`w-6 h-6 md:w-7 md:h-7 ${facility.highlight ? 'text-gold' : 'text-primary'}`} />
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-foreground mb-2">
+                    <h3 className="font-heading text-base md:text-lg font-bold text-foreground mb-1.5 md:mb-2">
                       {facility.name}
                       {facility.highlight && (
-                        <span className="ml-2 text-xs bg-gold text-gold-foreground px-2 py-0.5 rounded">
+                        <span className="ml-2 text-[10px] md:text-xs bg-gold text-gold-foreground px-1.5 md:px-2 py-0.5 rounded">
                           FREE
                         </span>
                       )}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{facility.desc}</p>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">{facility.desc}</p>
                   </CardContent>
                 </Card>
               ))}

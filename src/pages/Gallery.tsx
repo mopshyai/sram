@@ -69,28 +69,32 @@ const Gallery = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-muted/30 sticky top-0 z-40">
+      <section className="py-6 md:py-8 bg-muted/30 sticky top-0 z-40">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className={activeCategory === category.id ? "bg-primary" : ""}
-              >
-                <category.icon className="w-4 h-4 mr-2" />
-                {category.name}
-              </Button>
-            ))}
+          {/* Scrollable filter container for mobile */}
+          <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
+            <div className="inline-flex md:flex md:flex-wrap md:justify-center gap-2 min-w-max md:min-w-0">
+              {categories.map((category) => (
+                <Button
+                  key={category.id}
+                  variant={activeCategory === category.id ? "default" : "outline"}
+                  onClick={() => setActiveCategory(category.id)}
+                  size="sm"
+                  className={`${activeCategory === category.id ? "bg-primary" : ""} whitespace-nowrap`}
+                >
+                  <category.icon className="w-4 h-4 mr-1.5" />
+                  {category.name}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-10 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
             {filteredImages.map((image) => (
               <div
                 key={image.id}

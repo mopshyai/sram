@@ -136,26 +136,26 @@ const About = () => {
       </section>
 
       {/* Milestones */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">Our Journey</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-4">Our Journey</h2>
+            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
               Key milestones in our pursuit of educational excellence
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
             <div className="relative">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2"></div>
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 md:-translate-x-1/2"></div>
               {milestones.map((milestone, idx) => (
-                <div key={idx} className={`relative flex items-center gap-6 mb-8 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className="w-20 h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold text-lg shrink-0 z-10">
+                <div key={idx} className={`relative flex items-start gap-3 md:gap-6 mb-6 md:mb-8 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold text-xs md:text-lg shrink-0 z-10">
                     {milestone.year}
                   </div>
-                  <Card className="flex-1">
-                    <CardContent className="p-4">
-                      <h3 className="font-heading text-lg font-bold text-foreground">{milestone.title}</h3>
-                      <p className="text-muted-foreground text-sm mt-1">{milestone.desc}</p>
+                  <Card className="flex-1 ml-0 md:ml-0">
+                    <CardContent className="p-3 md:p-4">
+                      <h3 className="font-heading text-base md:text-lg font-bold text-foreground">{milestone.title}</h3>
+                      <p className="text-muted-foreground text-xs md:text-sm mt-1">{milestone.desc}</p>
                     </CardContent>
                   </Card>
                 </div>

@@ -50,19 +50,19 @@ const NccNss = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-gradient text-primary-foreground py-16">
+      <section className="hero-gradient text-primary-foreground py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">NCC & NSS</h1>
-          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">NCC & NSS</h1>
+          <p className="text-primary-foreground/80 text-base md:text-lg max-w-2xl mx-auto">
             Building leaders and responsible citizens through discipline, service, and character development
           </p>
         </div>
       </section>
 
       {/* Overview Stats */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-10 md:py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-4xl mx-auto">
             {[
               { icon: Users, value: "200+", label: "NCC Cadets" },
               { icon: Heart, value: "150+", label: "NSS Volunteers" },
@@ -70,10 +70,10 @@ const NccNss = () => {
               { icon: Calendar, value: "20+", label: "Annual Events" },
             ].map((stat, idx) => (
               <Card key={idx} className="text-center">
-                <CardContent className="pt-6">
-                  <stat.icon className="w-10 h-10 mx-auto text-primary mb-3" />
-                  <p className="text-3xl font-bold text-primary font-heading">{stat.value}</p>
-                  <p className="text-muted-foreground text-sm">{stat.label}</p>
+                <CardContent className="p-4 md:pt-6">
+                  <stat.icon className="w-8 h-8 md:w-10 md:h-10 mx-auto text-primary mb-2 md:mb-3" />
+                  <p className="text-2xl md:text-3xl font-bold text-primary font-heading">{stat.value}</p>
+                  <p className="text-muted-foreground text-xs md:text-sm">{stat.label}</p>
                 </CardContent>
               </Card>
             ))}
