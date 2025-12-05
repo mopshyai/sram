@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import collegeLogo from "@/assets/college-logo.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useInView } from "@/hooks/use-in-view";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { toast } from "sonner";
 
@@ -18,26 +19,7 @@ const Index = () => {
   const isMobile = useIsMobile();
   const [eventsKey, setEventsKey] = useState(0);
   const [noticesKey, setNoticesKey] = useState(0);
-  const [quickLinksVisible, setQuickLinksVisible] = useState(false);
-  const quickLinksRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setQuickLinksVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    
-    if (quickLinksRef.current) {
-      observer.observe(quickLinksRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
+  const { ref: quickLinksRef, isInView: quickLinksVisible } = useInView<HTMLElement>();
 
   const handleEventsRefresh = useCallback(async () => {
     // Simulate refresh delay
