@@ -49,6 +49,7 @@ const Events = () => {
       category: "cultural",
       description: "Grand celebration featuring cultural performances, awards ceremony, and guest lectures. Join us for a day of celebration honoring achievements and showcasing talents of our students.",
       time: "10:00 AM",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
     },
     {
       id: 2,
@@ -58,6 +59,7 @@ const Events = () => {
       category: "cultural",
       description: "Flag hoisting ceremony followed by patriotic performances and march past. A celebration of our nation's heritage with cultural programs.",
       time: "8:00 AM",
+      image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&h=600&fit=crop",
     },
     {
       id: 3,
@@ -67,6 +69,7 @@ const Events = () => {
       location: "District Training Center",
       category: "ncc-nss",
       description: "Annual training camp for NCC cadets with drills, weapon training, and leadership activities. Building discipline and national pride.",
+      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop",
     },
     {
       id: 4,
@@ -76,6 +79,7 @@ const Events = () => {
       category: "ncc-nss",
       description: "Blood donation drive organized by NSS unit in collaboration with Red Cross Society. Save lives through your generous donation.",
       time: "9:00 AM - 4:00 PM",
+      image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=800&h=600&fit=crop",
     },
     {
       id: 5,
@@ -85,6 +89,7 @@ const Events = () => {
       location: "College Sports Ground",
       category: "sports",
       description: "Annual sports competition featuring athletics, cricket, volleyball, and indoor games. Compete for glory and showcase your sporting talents.",
+      image: "https://images.unsplash.com/photo-1461896836934- voices908e90d8a?w=800&h=600&fit=crop",
     },
     {
       id: 6,
@@ -94,6 +99,7 @@ const Events = () => {
       category: "academic",
       description: "Expert session on National Education Policy 2020 and its implementation in higher education. Understanding the future of Indian education.",
       time: "11:00 AM",
+      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop",
     },
     {
       id: 7,
@@ -103,6 +109,7 @@ const Events = () => {
       category: "academic",
       description: "Student projects and working models showcasing innovations in science and technology. Witness creative solutions to real-world problems.",
       time: "10:00 AM - 5:00 PM",
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop",
     },
     {
       id: 8,
@@ -112,6 +119,7 @@ const Events = () => {
       category: "cultural",
       description: "Honoring our faculty with cultural programs and appreciation ceremony. A tribute to our mentors and guides.",
       time: "10:00 AM",
+      image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&h=600&fit=crop",
     },
     {
       id: 9,
@@ -121,6 +129,7 @@ const Events = () => {
       category: "sports",
       description: "International Yoga Day celebration with mass yoga session and wellness workshops. Promoting health and mindfulness.",
       time: "6:00 AM",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop",
     },
     {
       id: 10,
@@ -130,6 +139,7 @@ const Events = () => {
       location: "Adopted Village",
       category: "ncc-nss",
       description: "Week-long camp for community service including cleanliness drives, health camps, and awareness programs. Serving the community.",
+      image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop",
     },
     {
       id: 11,
@@ -139,6 +149,7 @@ const Events = () => {
       category: "seminars",
       description: "Two-day national seminar featuring research presentations and expert discussions on environmental issues. Addressing climate change challenges.",
       time: "9:00 AM",
+      image: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800&h=600&fit=crop",
     },
     {
       id: 12,
@@ -148,6 +159,7 @@ const Events = () => {
       category: "seminars",
       description: "Workshop on career opportunities in education, law, pharmacy, and other fields. Planning your successful future.",
       time: "11:00 AM",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
     },
   ];
 
@@ -245,23 +257,34 @@ const Events = () => {
                 >
                   {/* Image Thumbnail with Gradient Overlay */}
                   <div className="relative h-48 overflow-hidden">
-                    <div className={cn(
-                      "absolute inset-0 bg-gradient-to-br",
-                      getCategoryGradient(event.category)
-                    )}>
-                      {/* Pattern overlay */}
-                      <div className="absolute inset-0 opacity-20" style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                      }} />
-                    </div>
-                    {/* Category icon */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Calendar className="w-10 h-10 text-white" />
+                    {event.image ? (
+                      <>
+                        <img 
+                          src={event.image} 
+                          alt={event.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      </>
+                    ) : (
+                      <div className={cn(
+                        "absolute inset-0 bg-gradient-to-br",
+                        getCategoryGradient(event.category)
+                      )}>
+                        <div className="absolute inset-0 opacity-20" style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                        }} />
                       </div>
-                    </div>
+                    )}
+                    {/* Category badge */}
+                    <span className={cn(
+                      "absolute top-3 left-3 px-2 py-1 text-xs font-medium rounded text-white z-10",
+                      getCategoryColor(event.category)
+                    )}>
+                      {getCategoryLabel(event.category)}
+                    </span>
                     {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                       <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                         View Details
                       </span>
@@ -269,14 +292,6 @@ const Events = () => {
                   </div>
                   
                   <CardContent className="p-5">
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <span className={cn(
-                        "px-2 py-1 text-xs font-medium rounded text-white",
-                        getCategoryColor(event.category)
-                      )}>
-                        {getCategoryLabel(event.category)}
-                      </span>
-                    </div>
                     
                     <h3 className="font-heading text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
                       {event.title}
@@ -321,20 +336,28 @@ const Events = () => {
           {selectedEvent && (
             <>
               {/* Modal Header Image */}
-              <div className={cn(
-                "relative h-56 bg-gradient-to-br",
-                getCategoryGradient(selectedEvent.category)
-              )}>
-                <div className="absolute inset-0 opacity-20" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                }} />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <Calendar className="w-12 h-12 text-white" />
+              <div className="relative h-56 overflow-hidden">
+                {selectedEvent.image ? (
+                  <>
+                    <img 
+                      src={selectedEvent.image} 
+                      alt={selectedEvent.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  </>
+                ) : (
+                  <div className={cn(
+                    "absolute inset-0 bg-gradient-to-br",
+                    getCategoryGradient(selectedEvent.category)
+                  )}>
+                    <div className="absolute inset-0 opacity-20" style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    }} />
                   </div>
-                </div>
+                )}
                 <span className={cn(
-                  "absolute top-4 left-4 px-3 py-1.5 text-sm font-medium rounded text-white",
+                  "absolute top-4 left-4 px-3 py-1.5 text-sm font-medium rounded text-white z-10",
                   getCategoryColor(selectedEvent.category)
                 )}>
                   {getCategoryLabel(selectedEvent.category)}
