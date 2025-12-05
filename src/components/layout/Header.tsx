@@ -23,8 +23,15 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const toggleLanguage = () => {
-    setIsHindi(!isHindi);
-    // Placeholder for actual translation logic
+    const newIsHindi = !isHindi;
+    setIsHindi(newIsHindi);
+    
+    // Trigger Google Translate
+    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (selectElement) {
+      selectElement.value = newIsHindi ? 'hi' : 'en';
+      selectElement.dispatchEvent(new Event('change'));
+    }
   };
 
   const navLinks = [
