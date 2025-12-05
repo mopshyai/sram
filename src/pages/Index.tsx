@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState, useCallback } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,9 +10,27 @@ import {
 } from "lucide-react";
 import collegeLogo from "@/assets/college-logo.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { PullToRefresh } from "@/components/PullToRefresh";
+import { toast } from "sonner";
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const [eventsKey, setEventsKey] = useState(0);
+  const [noticesKey, setNoticesKey] = useState(0);
+
+  const handleEventsRefresh = useCallback(async () => {
+    // Simulate refresh delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setEventsKey(prev => prev + 1);
+    toast.success("Events refreshed!");
+  }, []);
+
+  const handleNoticesRefresh = useCallback(async () => {
+    // Simulate refresh delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setNoticesKey(prev => prev + 1);
+    toast.success("Notices refreshed!");
+  }, []);
   
   const stats = [
     { icon: Users, value: "2000+", label: "Students" },
@@ -210,7 +229,7 @@ const Index = () => {
       </section>
 
       {/* Recent Events Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -219,47 +238,52 @@ const Index = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Stay updated with the latest happenings at our college
             </p>
+            {isMobile && (
+              <p className="text-xs text-muted-foreground/70 mt-2">Pull down to refresh</p>
+            )}
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" },
-              { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" },
-              { title: "Inter-College Sports Meet", date: "10-12 Jan 2025", location: "Sports Ground", category: "Sports", color: "bg-green-500", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" },
-              { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" },
-              { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=400&fit=crop" },
-              { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop" },
-            ].slice(0, isMobile ? 3 : 6).map((event, idx) => (
-              <Card key={idx} className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                {/* Image Thumbnail */}
-                <div className="relative h-40 overflow-hidden">
-                  <img 
-                    src={event.image} 
-                    alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <span className={`absolute top-3 left-3 px-2 py-1 text-xs font-medium rounded text-white ${event.color}`}>
-                    {event.category}
-                  </span>
-                </div>
-                <CardContent className="p-5">
-                  <h3 className="font-heading text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                    {event.title}
-                  </h3>
-                  <div className="space-y-1.5 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-primary" />
-                      <span>{event.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span>{event.location}</span>
-                    </div>
+          <PullToRefresh onRefresh={handleEventsRefresh} disabled={!isMobile}>
+            <div key={eventsKey} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {[
+                { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" },
+                { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" },
+                { title: "Inter-College Sports Meet", date: "10-12 Jan 2025", location: "Sports Ground", category: "Sports", color: "bg-green-500", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" },
+                { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" },
+                { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=400&fit=crop" },
+                { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop" },
+              ].slice(0, isMobile ? 3 : 6).map((event, idx) => (
+                <Card key={idx} className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                  {/* Image Thumbnail */}
+                  <div className="relative h-40 overflow-hidden">
+                    <img 
+                      src={event.image} 
+                      alt={event.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <span className={`absolute top-3 left-3 px-2 py-1 text-xs font-medium rounded text-white ${event.color}`}>
+                      {event.category}
+                    </span>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <CardContent className="p-5">
+                    <h3 className="font-heading text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {event.title}
+                    </h3>
+                    <div className="space-y-1.5 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-primary" />
+                        <span>{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-primary" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </PullToRefresh>
           <div className="text-center mt-10">
             <Button asChild className="bg-primary hover:bg-primary-dark">
               <Link to="/events">
@@ -305,35 +329,42 @@ const Index = () => {
       </section>
 
       {/* Notice Board & Downloads */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Notice Board */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-heading text-xl font-bold text-foreground flex items-center gap-2">
-                    <Bell className="w-5 h-5 text-gold" />
-                    Notice Board
-                  </h3>
-                  <Link to="/downloads" className="text-primary text-sm hover:underline">View All</Link>
-                </div>
-                <ul className="space-y-4">
-                  {notices.map((notice, idx) => (
-                    <li key={idx} className="flex items-start gap-3 pb-3 border-b border-border last:border-0">
-                      <Calendar className="w-4 h-4 text-muted-foreground mt-1 shrink-0" />
-                      <div className="flex-1">
-                        <p className="text-foreground font-medium text-sm flex items-center gap-2">
-                          {notice.title}
-                          {notice.isNew && <span className="px-1.5 py-0.5 bg-primary text-primary-foreground text-xs rounded">NEW</span>}
-                        </p>
-                        <p className="text-muted-foreground text-xs mt-0.5">{notice.date}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <PullToRefresh onRefresh={handleNoticesRefresh} disabled={!isMobile}>
+              <Card key={noticesKey}>
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="font-heading text-xl font-bold text-foreground flex items-center gap-2">
+                      <Bell className="w-5 h-5 text-gold" />
+                      Notice Board
+                    </h3>
+                    <div className="flex items-center gap-3">
+                      {isMobile && (
+                        <span className="text-xs text-muted-foreground/70">Pull to refresh</span>
+                      )}
+                      <Link to="/downloads" className="text-primary text-sm hover:underline">View All</Link>
+                    </div>
+                  </div>
+                  <ul className="space-y-4">
+                    {notices.map((notice, idx) => (
+                      <li key={idx} className="flex items-start gap-3 pb-3 border-b border-border last:border-0">
+                        <Calendar className="w-4 h-4 text-muted-foreground mt-1 shrink-0" />
+                        <div className="flex-1">
+                          <p className="text-foreground font-medium text-sm flex items-center gap-2">
+                            {notice.title}
+                            {notice.isNew && <span className="px-1.5 py-0.5 bg-primary text-primary-foreground text-xs rounded">NEW</span>}
+                          </p>
+                          <p className="text-muted-foreground text-xs mt-0.5">{notice.date}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </PullToRefresh>
 
             {/* Quick Downloads */}
             <Card>
