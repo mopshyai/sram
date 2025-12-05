@@ -8,8 +8,11 @@ import {
   FileText, Calendar, Bell, ArrowRight
 } from "lucide-react";
 import collegeLogo from "@/assets/college-logo.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  
   const stats = [
     { icon: Users, value: "2000+", label: "Students" },
     { icon: BookOpen, value: "25+", label: "Programs" },
@@ -85,22 +88,24 @@ const Index = () => {
       {/* Bulletin Ticker */}
       <div className="bg-navy text-white py-0 overflow-hidden">
         <div className="flex items-center">
-          <div className="bg-primary px-4 py-3 font-bold text-primary-foreground shrink-0 flex items-center gap-2">
-            <Bell className="w-4 h-4" />
-            BULLETIN
+          {/* BULLETIN label - Smaller on mobile */}
+          <div className="bg-primary px-2 sm:px-4 py-2.5 sm:py-3 font-bold text-primary-foreground shrink-0 flex items-center gap-1.5 sm:gap-2">
+            <Bell className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <span className="text-xs sm:text-sm">BULLETIN</span>
           </div>
-          <div className="flex-1 overflow-hidden py-3 px-4">
-            <div className="flex items-center gap-6 animate-marquee whitespace-nowrap">
+          <div className="flex-1 overflow-hidden py-2.5 sm:py-3 px-2 sm:px-4">
+            <div className="flex items-center gap-4 sm:gap-6 animate-marquee whitespace-nowrap text-sm sm:text-base">
               {notices.map((notice, idx) => (
-                <span key={idx} className="flex items-center gap-2">
-                  {notice.isNew && <span className="px-1.5 py-0.5 bg-gold text-gold-foreground text-xs rounded font-medium">NEW</span>}
+                <span key={idx} className="flex items-center gap-1.5 sm:gap-2">
+                  {notice.isNew && <span className="px-1 sm:px-1.5 py-0.5 bg-gold text-gold-foreground text-[10px] sm:text-xs rounded font-medium">NEW</span>}
                   <span>{notice.title}</span>
                   <span className="text-white/40">•</span>
                 </span>
               ))}
             </div>
           </div>
-          <div className="flex gap-1 px-3 shrink-0">
+          {/* Navigation arrows - Hidden on very small screens */}
+          <div className="hidden sm:flex gap-1 px-3 shrink-0">
             <button className="w-8 h-8 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded transition-colors">
               <ChevronRight className="w-4 h-4 rotate-180" />
             </button>
@@ -215,7 +220,7 @@ const Index = () => {
               Stay updated with the latest happenings at our college
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" },
               { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" },
@@ -223,7 +228,7 @@ const Index = () => {
               { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" },
               { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=400&fit=crop" },
               { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop" },
-            ].map((event, idx) => (
+            ].slice(0, isMobile ? 3 : 6).map((event, idx) => (
               <Card key={idx} className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 {/* Image Thumbnail */}
                 <div className="relative h-40 overflow-hidden">

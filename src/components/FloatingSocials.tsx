@@ -11,23 +11,58 @@ const socials = [
 
 const FloatingSocials = () => {
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col">
-      {socials.map((social) => {
-        const Icon = social.icon;
-        return (
+    <>
+      {/* Desktop: Right side floating */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col hidden md:flex">
+        {socials.map((social) => {
+          const Icon = social.icon;
+          return (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className={`${social.bg} w-10 h-10 flex items-center justify-center text-white hover:w-12 transition-all duration-200 shadow-md`}
+            >
+              <Icon className="w-5 h-5" />
+            </a>
+          );
+        })}
+      </div>
+
+      {/* Mobile: Bottom floating bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-card/95 backdrop-blur-sm border-t border-border safe-area-bottom">
+        <div className="flex items-center justify-around py-2 px-2">
+          {socials.slice(0, 5).map((social) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className={`${social.bg} w-11 h-11 flex items-center justify-center text-white rounded-full shadow-md active:scale-95 transition-transform`}
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            );
+          })}
+          {/* WhatsApp with label */}
           <a
-            key={social.label}
-            href={social.href}
+            href="https://wa.me/919837320170"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={social.label}
-            className={`${social.bg} w-10 h-10 flex items-center justify-center text-white hover:w-12 transition-all duration-200 shadow-md`}
+            aria-label="WhatsApp"
+            className="bg-[#25D366] h-11 px-4 flex items-center justify-center gap-1.5 text-white rounded-full shadow-md active:scale-95 transition-transform"
           >
-            <Icon className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5" />
+            <span className="text-xs font-medium">Chat</span>
           </a>
-        );
-      })}
-    </div>
+        </div>
+      </div>
+    </>
   );
 };
 
