@@ -74,39 +74,54 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top Bar */}
-      <div className="bg-primary-dark text-primary-foreground py-2 text-sm">
-        <div className="container mx-auto px-4 flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-4 flex-wrap">
-            <a href="tel:9837320170" className="flex items-center gap-1 hover:text-gold transition-colors">
-              <Phone className="w-3 h-3" />
-              <span className="hidden sm:inline">9837320170</span>
+      <div className="bg-primary-dark text-primary-foreground py-1.5 sm:py-2 text-sm">
+        <div className="container mx-auto px-4 flex justify-between items-center gap-2">
+          {/* Contact Info - Hidden on very small screens */}
+          <div className="hidden sm:flex items-center gap-4">
+            <a href="tel:9837320170" className="flex items-center gap-1.5 hover:text-gold transition-colors min-h-[44px] sm:min-h-0 items-center">
+              <Phone className="w-3.5 h-3.5" />
+              <span>9837320170</span>
             </a>
-            <a href="mailto:shriramadarsh190@gmail.com" className="flex items-center gap-1 hover:text-gold transition-colors">
-              <Mail className="w-3 h-3" />
-              <span className="hidden md:inline">shriramadarsh190@gmail.com</span>
+            <a href="mailto:shriramadarsh190@gmail.com" className="hidden md:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <Mail className="w-3.5 h-3.5" />
+              <span className="hidden lg:inline">shriramadarsh190@gmail.com</span>
+              <span className="lg:hidden">Email</span>
             </a>
           </div>
-          <div className="flex items-center gap-3">
+          
+          {/* Mobile: Call button */}
+          <a href="tel:9837320170" className="sm:hidden flex items-center gap-1.5 px-3 py-1.5 bg-primary-foreground/10 rounded-full hover:bg-primary-foreground/20 transition-colors">
+            <Phone className="w-4 h-4" />
+            <span className="text-xs font-medium">Call Us</span>
+          </a>
+          
+          <div className="flex items-center gap-2 sm:gap-3">
             <span className="hidden lg:flex items-center gap-1 text-primary-foreground/80">
               <Clock className="w-3 h-3" />
               Mon - Sat: 9:00 AM - 5:00 PM
             </span>
-            <div className="flex gap-1 text-xs items-center">
-              <button className="px-2 py-0.5 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A+</button>
-              <button className="px-2 py-0.5 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A</button>
-              <button className="px-2 py-0.5 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A-</button>
+            
+            {/* Font size controls - Hidden on mobile */}
+            <div className="hidden sm:flex gap-1 text-xs items-center">
+              <button className="w-7 h-7 flex items-center justify-center bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A+</button>
+              <button className="w-7 h-7 flex items-center justify-center bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A</button>
+              <button className="w-7 h-7 flex items-center justify-center bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A-</button>
               <span className="w-px h-4 bg-primary-foreground/30 mx-1"></span>
+            </div>
+            
+            {/* Dark mode & Language toggles - Always visible */}
+            <div className="flex gap-1.5 items-center">
               <button 
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-1 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20"
+                className="w-9 h-9 sm:w-7 sm:h-7 flex items-center justify-center bg-primary-foreground/10 rounded hover:bg-primary-foreground/20 transition-colors"
                 aria-label="Toggle dark mode"
               >
-                {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+                {theme === 'dark' ? <Sun className="w-4 h-4 sm:w-3.5 sm:h-3.5" /> : <Moon className="w-4 h-4 sm:w-3.5 sm:h-3.5" />}
               </button>
               <button 
                 onClick={toggleLanguage}
                 className={cn(
-                  "px-2 py-0.5 rounded font-medium transition-colors",
+                  "px-3 py-1.5 sm:px-2 sm:py-0.5 rounded font-medium transition-colors text-xs sm:text-sm min-h-[36px] sm:min-h-0",
                   isHindi ? "bg-gold text-gold-foreground" : "bg-primary-foreground/10 hover:bg-primary-foreground/20"
                 )}
               >
@@ -146,15 +161,16 @@ const Header = () => {
             </div>
 
             {/* Right - CTA */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <Button asChild className="hidden md:inline-flex bg-gold hover:bg-gold-light text-gold-foreground font-semibold pulse-glow">
                 <Link to="/admissions">Admissions 2025-26</Link>
               </Button>
               
               {/* Mobile Menu Button */}
               <button
-                className="lg:hidden p-2 rounded-md hover:bg-muted"
+                className="lg:hidden w-11 h-11 flex items-center justify-center rounded-md hover:bg-muted active:bg-muted/80 transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -220,18 +236,18 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-card border-b border-border shadow-lg animate-fade-in">
+        <div className="lg:hidden bg-card border-b border-border shadow-lg animate-fade-in max-h-[70vh] overflow-y-auto">
           <nav className="container mx-auto px-4 py-4">
             <ul className="space-y-1">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   {link.children ? (
                     <details className="group">
-                      <summary className="flex items-center justify-between p-3 rounded-md hover:bg-muted cursor-pointer list-none">
+                      <summary className="flex items-center justify-between p-3 min-h-[48px] rounded-md hover:bg-muted cursor-pointer list-none active:bg-muted/80">
                         <span className={cn("font-medium", isActive(link.path) && "text-primary")}>
                           {link.name}
                         </span>
-                        <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180" />
+                        <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" />
                       </summary>
                       <ul className="ml-4 mt-1 space-y-1 border-l-2 border-muted pl-4">
                         {link.children.map((child) => (
@@ -240,7 +256,7 @@ const Header = () => {
                               to={child.path}
                               onClick={() => setMobileMenuOpen(false)}
                               className={cn(
-                                "block p-2 rounded-md hover:bg-muted text-sm",
+                                "block p-3 min-h-[44px] flex items-center rounded-md hover:bg-muted text-sm active:bg-muted/80",
                                 isActive(child.path) && "text-primary font-medium bg-muted"
                               )}
                             >
@@ -255,7 +271,7 @@ const Header = () => {
                       to={link.path}
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        "block p-3 rounded-md hover:bg-muted font-medium",
+                        "block p-3 min-h-[48px] flex items-center rounded-md hover:bg-muted font-medium active:bg-muted/80",
                         isActive(link.path) && "text-primary bg-muted"
                       )}
                     >
@@ -264,8 +280,8 @@ const Header = () => {
                   )}
                 </li>
               ))}
-              <li className="pt-3">
-                <Button asChild className="w-full bg-gold hover:bg-gold-light text-gold-foreground">
+              <li className="pt-4">
+                <Button asChild className="w-full h-12 text-base bg-gold hover:bg-gold-light text-gold-foreground">
                   <Link to="/admissions" onClick={() => setMobileMenuOpen(false)}>
                     Admissions 2025-26
                   </Link>
