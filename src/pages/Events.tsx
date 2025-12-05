@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Clock, Filter, ArrowRight, X, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, Clock, Filter, ArrowRight, X, ExternalLink, UserPlus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Dialog,
@@ -11,6 +11,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { EventRegistrationForm } from "@/components/EventRegistrationForm";
 
 type EventCategory = "all" | "academic" | "cultural" | "sports" | "ncc-nss" | "seminars";
 
@@ -25,11 +26,13 @@ interface Event {
   time?: string;
   image?: string;
   link?: string;
+  isRegistrationOpen?: boolean;
 }
 
 const Events = () => {
   const [activeFilter, setActiveFilter] = useState<EventCategory>("all");
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
   const categories: { value: EventCategory; label: string }[] = [
     { value: "all", label: "All Events" },
@@ -50,6 +53,7 @@ const Events = () => {
       description: "Grand celebration featuring cultural performances, awards ceremony, and guest lectures. Join us for a day of celebration honoring achievements and showcasing talents of our students.",
       time: "10:00 AM",
       image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+      isRegistrationOpen: true,
     },
     {
       id: 2,
@@ -60,6 +64,7 @@ const Events = () => {
       description: "Flag hoisting ceremony followed by patriotic performances and march past. A celebration of our nation's heritage with cultural programs.",
       time: "8:00 AM",
       image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&h=600&fit=crop",
+      isRegistrationOpen: true,
     },
     {
       id: 3,
@@ -80,6 +85,7 @@ const Events = () => {
       description: "Blood donation drive organized by NSS unit in collaboration with Red Cross Society. Save lives through your generous donation.",
       time: "9:00 AM - 4:00 PM",
       image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=800&h=600&fit=crop",
+      isRegistrationOpen: true,
     },
     {
       id: 5,
@@ -110,6 +116,7 @@ const Events = () => {
       description: "Student projects and working models showcasing innovations in science and technology. Witness creative solutions to real-world problems.",
       time: "10:00 AM - 5:00 PM",
       image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop",
+      isRegistrationOpen: true,
     },
     {
       id: 8,
@@ -160,6 +167,7 @@ const Events = () => {
       description: "Workshop on career opportunities in education, law, pharmacy, and other fields. Planning your successful future.",
       time: "11:00 AM",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+      isRegistrationOpen: true,
     },
   ];
 
@@ -412,19 +420,40 @@ const Events = () => {
                   </div>
                 </div>
 
-                {selectedEvent.link && (
-                  <Button asChild className="w-full">
-                    <a href={selectedEvent.link} target="_blank" rel="noopener noreferrer">
-                      View More Details
-                      <ExternalLink className="ml-2 w-4 h-4" />
-                    </a>
-                  </Button>
-                )}
+                <div className="flex flex-col gap-3">
+                  {selectedEvent.isRegistrationOpen && (
+                    <Button 
+                      onClick={() => setIsRegistrationOpen(true)}
+                      className="w-full"
+                    >
+                      <UserPlus className="mr-2 w-4 h-4" />
+                      Register for Event
+                    </Button>
+                  )}
+                  {selectedEvent.link && (
+                    <Button asChild variant={selectedEvent.isRegistrationOpen ? "outline" : "default"} className="w-full">
+                      <a href={selectedEvent.link} target="_blank" rel="noopener noreferrer">
+                        View More Details
+                        <ExternalLink className="ml-2 w-4 h-4" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
               </div>
             </>
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Registration Form Modal */}
+      {selectedEvent && (
+        <EventRegistrationForm
+          eventTitle={selectedEvent.title}
+          eventDate={selectedEvent.date}
+          isOpen={isRegistrationOpen}
+          onClose={() => setIsRegistrationOpen(false)}
+        />
+      )}
 
       {/* CTA Section */}
       <section className="py-12 bg-muted/30">
