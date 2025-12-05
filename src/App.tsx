@@ -20,6 +20,17 @@ import AntiRagging from "./pages/AntiRagging";
 import CodeOfConduct from "./pages/CodeOfConduct";
 import MandatoryDisclosure from "./pages/MandatoryDisclosure";
 import Events from "./pages/Events";
+import Results from "./pages/Results";
+import Timetable from "./pages/Timetable";
+import Scholarships from "./pages/Scholarships";
+import Alumni from "./pages/Alumni";
+import Placements from "./pages/Placements";
+import Attendance from "./pages/Attendance";
+import AcademicCalendar from "./pages/AcademicCalendar";
+import Library from "./pages/Library";
+import Research from "./pages/Research";
+import FeeStructure from "./pages/FeeStructure";
+import Prospectus from "./pages/Prospectus";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +59,17 @@ const App = () => (
             <Route path="/code-of-conduct" element={<CodeOfConduct />} />
             <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/timetable" element={<Timetable />} />
+            <Route path="/scholarships" element={<Scholarships />} />
+            <Route path="/alumni" element={<Alumni />} />
+            <Route path="/placements" element={<Placements />} />
+            <Route path="/attendance" element={<Attendance />} />
+            <Route path="/academic-calendar" element={<AcademicCalendar />} />
+            <Route path="/library" element={<Library />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/fee-structure" element={<FeeStructure />} />
+            <Route path="/prospectus" element={<Prospectus />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
