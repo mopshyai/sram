@@ -41,6 +41,7 @@ const Header = () => {
     { name: "Admissions", path: "/admissions" },
     { name: "Facilities", path: "/facilities" },
     { name: "NCC / NSS", path: "/ncc-nss" },
+    { name: "Events", path: "/events" },
     { name: "Gallery", path: "/gallery" },
     {
       name: "Downloads",
