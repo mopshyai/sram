@@ -12,6 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
@@ -43,6 +44,9 @@ const Header = () => {
         { name: "About Us", path: "/about" },
         { name: "Chairman's Message", path: "/chairman-message" },
         { name: "Mission & Vision", path: "/mission-vision" },
+        { name: "History", path: "/about#history" },
+        { name: "Governing Body", path: "/about#governing-body" },
+        { name: "Administration", path: "/about#administration" },
       ],
     },
     {
@@ -51,6 +55,23 @@ const Header = () => {
       children: [
         { name: "All Courses", path: "/courses" },
         { name: "Departments", path: "/departments" },
+        { name: "Syllabus", path: "/downloads#syllabus" },
+        { name: "Academic Calendar", path: "/downloads#calendar" },
+        { name: "Exam Schedule", path: "/downloads#exam-schedule" },
+        { name: "Results", path: "/downloads#results" },
+      ],
+    },
+    {
+      name: "Student Corner",
+      path: "/student-corner",
+      children: [
+        { name: "Achievements", path: "/gallery#achievements" },
+        { name: "Placements", path: "/about#placements" },
+        { name: "Scholarships", path: "/admissions#scholarships" },
+        { name: "Library", path: "/facilities#library" },
+        { name: "Societies & Clubs", path: "/about#societies" },
+        { name: "Alumni", path: "/about#alumni" },
+        { name: "Grievance Cell", path: "/contact#grievance" },
       ],
     },
     { name: "Admissions", path: "/admissions" },
@@ -66,6 +87,9 @@ const Header = () => {
         { name: "Mandatory Disclosure", path: "/mandatory-disclosure" },
         { name: "Anti-Ragging Policy", path: "/anti-ragging" },
         { name: "Code of Conduct", path: "/code-of-conduct" },
+        { name: "Prospectus", path: "/downloads#prospectus" },
+        { name: "Admission Forms", path: "/downloads#forms" },
+        { name: "Fee Structure", path: "/downloads#fees" },
       ],
     },
     { name: "Contact", path: "/contact" },
@@ -197,23 +221,25 @@ const Header = () => {
                         {link.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-48 gap-1 p-2 bg-card">
-                          {link.children.map((child) => (
-                            <li key={child.path}>
-                              <NavigationMenuLink asChild>
-                                <Link
-                                  to={child.path}
-                                  className={cn(
-                                    "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary",
-                                    isActive(child.path) && "bg-muted text-primary font-medium"
-                                  )}
-                                >
-                                  {child.name}
-                                </Link>
-                              </NavigationMenuLink>
-                            </li>
-                          ))}
-                        </ul>
+                        <ScrollArea className="max-h-[280px] w-52">
+                          <ul className="grid gap-1 p-2 bg-card">
+                            {link.children.map((child) => (
+                              <li key={child.path}>
+                                <NavigationMenuLink asChild>
+                                  <Link
+                                    to={child.path}
+                                    className={cn(
+                                      "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary text-sm",
+                                      isActive(child.path) && "bg-muted text-primary font-medium"
+                                    )}
+                                  >
+                                    {child.name}
+                                  </Link>
+                                </NavigationMenuLink>
+                              </li>
+                            ))}
+                          </ul>
+                        </ScrollArea>
                       </NavigationMenuContent>
                     </>
                   ) : (
@@ -249,7 +275,7 @@ const Header = () => {
                         </span>
                         <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" />
                       </summary>
-                      <ul className="ml-4 mt-1 space-y-1 border-l-2 border-muted pl-4">
+                      <ul className="ml-4 mt-1 space-y-1 border-l-2 border-muted pl-4 max-h-[200px] overflow-y-auto">
                         {link.children.map((child) => (
                           <li key={child.path}>
                             <Link
