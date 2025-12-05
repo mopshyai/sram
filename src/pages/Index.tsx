@@ -82,17 +82,32 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Notice Marquee */}
-      <div className="bg-gold text-gold-foreground py-2 overflow-hidden">
-        <div className="flex items-center gap-4 animate-marquee whitespace-nowrap">
-          <Bell className="w-4 h-4 shrink-0" />
-          {notices.map((notice, idx) => (
-            <span key={idx} className="flex items-center gap-2">
-              {notice.isNew && <span className="px-1.5 py-0.5 bg-primary text-primary-foreground text-xs rounded">NEW</span>}
-              <span>{notice.title}</span>
-              <span className="text-gold-foreground/60">|</span>
-            </span>
-          ))}
+      {/* Bulletin Ticker */}
+      <div className="bg-navy text-white py-0 overflow-hidden">
+        <div className="flex items-center">
+          <div className="bg-primary px-4 py-3 font-bold text-primary-foreground shrink-0 flex items-center gap-2">
+            <Bell className="w-4 h-4" />
+            BULLETIN
+          </div>
+          <div className="flex-1 overflow-hidden py-3 px-4">
+            <div className="flex items-center gap-6 animate-marquee whitespace-nowrap">
+              {notices.map((notice, idx) => (
+                <span key={idx} className="flex items-center gap-2">
+                  {notice.isNew && <span className="px-1.5 py-0.5 bg-gold text-gold-foreground text-xs rounded font-medium">NEW</span>}
+                  <span>{notice.title}</span>
+                  <span className="text-white/40">•</span>
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="flex gap-1 px-3 shrink-0">
+            <button className="w-8 h-8 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded transition-colors">
+              <ChevronRight className="w-4 h-4 rotate-180" />
+            </button>
+            <button className="w-8 h-8 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded transition-colors">
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
 
