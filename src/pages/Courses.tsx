@@ -6,7 +6,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { 
   GraduationCap, Clock, FileText, Briefcase, Download, 
-  BookOpen, Shield, Microscope, Wrench, ChevronRight 
+  BookOpen, Shield, Microscope, Wrench, ChevronRight,
+  Star, Bus, Heart, Users, Award
 } from "lucide-react";
 
 const Courses = () => {
@@ -138,6 +139,71 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* Admission Banner */}
+      <section className="bg-gold py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-gold-foreground text-center">
+            <div className="flex items-center gap-2">
+              <Star className="w-6 h-6 animate-pulse" />
+              <span className="font-heading text-xl md:text-2xl font-bold">2025-26 ADMISSION OPEN</span>
+              <Star className="w-6 h-6 animate-pulse" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-medium">
+              <span className="bg-gold-foreground/20 px-3 py-1 rounded-full">Direct Admission</span>
+              <span className="bg-gold-foreground/20 px-3 py-1 rounded-full">First Come - First Serve</span>
+              <span className="bg-gold-foreground/20 px-3 py-1 rounded-full">Limited Seats</span>
+            </div>
+          </div>
+          <div className="text-center mt-4">
+            <Badge className="bg-primary text-primary-foreground text-lg px-4 py-1 font-bold">
+              College Code: 190
+            </Badge>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Benefits Section */}
+      <section className="py-8 bg-accent">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {/* Free Education for Orphans */}
+            <Card className="border-2 border-primary bg-background">
+              <CardContent className="p-4 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+                  <Heart className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-foreground">Free Education for Orphan Students</h3>
+                  <p className="text-sm text-muted-foreground">अनाथ छात्रों के लिए निःशुल्क शिक्षा</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Free Bus Service for Girls */}
+            <Card className="border-2 border-primary bg-background">
+              <CardContent className="p-4 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+                  <Bus className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-foreground">Free Bus Service for Girl Students</h3>
+                  <p className="text-sm text-muted-foreground">छात्राओं के लिए निःशुल्क बस सेवा</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Affiliation Badge */}
+      <section className="py-4 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground text-sm md:text-base">
+            <strong className="text-foreground">Affiliated to:</strong> Dr. Bhimrao Ambedkar University, Agra (Formerly Agra University)
+          </p>
+        </div>
+      </section>
+
       {/* Courses Tabs */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
@@ -161,6 +227,11 @@ const Courses = () => {
                   <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center mb-2">
                     {category.title}
                   </h2>
+                  <p className="text-center">
+                    <Badge variant="outline" className="text-primary border-primary">
+                      College Code: 190
+                    </Badge>
+                  </p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                   {category.courses.map((course, idx) => (
@@ -235,12 +306,55 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* NCC & NSS Section */}
+      <section className="py-12 bg-accent">
+        <div className="container mx-auto px-4">
+          <Card className="max-w-4xl mx-auto border-2 border-gold">
+            <CardContent className="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="flex gap-4">
+                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                    <Users className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center">
+                    <Award className="w-8 h-8 text-gold-foreground" />
+                  </div>
+                </div>
+                <div className="text-center md:text-left flex-1">
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-2">
+                    NCC & NSS Units Available
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    Develop leadership qualities, discipline, and serve the nation through our active NCC (National Cadet Corps) 
+                    and NSS (National Service Scheme) units.
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    <Badge className="bg-primary text-primary-foreground">Leadership Training</Badge>
+                    <Badge className="bg-primary text-primary-foreground">Social Service</Badge>
+                    <Badge className="bg-primary text-primary-foreground">Character Building</Badge>
+                  </div>
+                </div>
+                <Button asChild className="bg-gold hover:bg-gold-light text-gold-foreground shrink-0">
+                  <Link to="/ncc-nss">
+                    Learn More
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-12 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h3 className="font-heading text-2xl font-bold mb-4">Ready to Apply?</h3>
-          <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
-            Direct Admission available. First Come, First Serve basis. Contact us for more details.
+          <p className="text-primary-foreground/80 mb-2 max-w-xl mx-auto">
+            Direct Admission available. First Come, First Serve basis.
+          </p>
+          <p className="text-primary-foreground font-bold text-lg mb-6">
+            College Code: 190
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild className="bg-gold hover:bg-gold-light text-gold-foreground">
