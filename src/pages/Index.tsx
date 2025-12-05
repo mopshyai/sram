@@ -6,7 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { 
   GraduationCap, Users, Award, BookOpen, Building, Phone, Mail,
   MapPin, ChevronRight, Shield, Microscope, Library, Bus, 
-  FileText, Calendar, Bell, ArrowRight
+  FileText, Calendar, Bell, ArrowRight, CreditCard, ClipboardList,
+  Clock, Flag, UserCheck
 } from "lucide-react";
 import collegeLogo from "@/assets/college-logo.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -147,6 +148,49 @@ const Index = () => {
                   <p className="text-muted-foreground text-sm mt-1">{stat.label}</p>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Quick Links
+            </h2>
+            <p className="text-muted-foreground text-sm md:text-base">
+              Access important resources and services quickly
+            </p>
+          </div>
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 max-w-5xl mx-auto">
+            {[
+              { name: "ADMISSIONS", icon: GraduationCap, href: "/admissions", bg: "bg-emerald-500" },
+              { name: "FEE & PAYMENTS", icon: CreditCard, href: "/admissions", bg: "bg-orange-500" },
+              { name: "DOWNLOADS", icon: FileText, href: "/downloads", bg: "bg-pink-500" },
+              { name: "CALENDAR", icon: Calendar, href: "/events", bg: "bg-yellow-400" },
+              { name: "NOTICES", icon: Bell, href: "/", bg: "bg-blue-500" },
+              { name: "ALUMNI", icon: UserCheck, href: "/about", bg: "bg-lime-500" },
+              { name: "SCHOLARSHIPS", icon: Award, href: "/admissions", bg: "bg-purple-500" },
+              { name: "RESULTS", icon: ClipboardList, href: "/downloads", bg: "bg-teal-500" },
+              { name: "TIME TABLE", icon: Clock, href: "/downloads", bg: "bg-amber-500" },
+              { name: "LIBRARY", icon: Library, href: "/facilities", bg: "bg-cyan-500" },
+              { name: "NCC / NSS", icon: Flag, href: "/ncc-nss", bg: "bg-red-500" },
+              { name: "CONTACT US", icon: Phone, href: "/contact", bg: "bg-green-600" },
+            ].map((item, idx) => (
+              <Link 
+                key={idx} 
+                to={item.href} 
+                className="flex flex-col items-center group"
+              >
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full ${item.bg} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                  <item.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 text-white" />
+                </div>
+                <span className="mt-2 md:mt-3 text-[10px] sm:text-xs md:text-sm font-medium text-foreground text-center leading-tight">
+                  {item.name}
+                </span>
+              </Link>
             ))}
           </div>
         </div>
