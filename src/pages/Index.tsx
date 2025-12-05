@@ -166,28 +166,28 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 max-w-5xl mx-auto">
             {[
-              { name: "ADMISSIONS", icon: GraduationCap, href: "/admissions", bg: "bg-emerald-500" },
-              { name: "FEE & PAYMENTS", icon: CreditCard, href: "/admissions", bg: "bg-orange-500" },
-              { name: "DOWNLOADS", icon: FileText, href: "/downloads", bg: "bg-pink-500" },
-              { name: "CALENDAR", icon: Calendar, href: "/events", bg: "bg-yellow-400" },
-              { name: "NOTICES", icon: Bell, href: "/", bg: "bg-blue-500" },
-              { name: "ALUMNI", icon: UserCheck, href: "/about", bg: "bg-lime-500" },
-              { name: "SCHOLARSHIPS", icon: Award, href: "/admissions", bg: "bg-purple-500" },
-              { name: "RESULTS", icon: ClipboardList, href: "/downloads", bg: "bg-teal-500" },
-              { name: "TIME TABLE", icon: Clock, href: "/downloads", bg: "bg-amber-500" },
-              { name: "LIBRARY", icon: Library, href: "/facilities", bg: "bg-cyan-500" },
-              { name: "NCC / NSS", icon: Flag, href: "/ncc-nss", bg: "bg-red-500" },
-              { name: "CONTACT US", icon: Phone, href: "/contact", bg: "bg-green-600" },
+              { name: "ADMISSIONS", icon: GraduationCap, href: "/admissions", bg: "bg-emerald-500", shadow: "shadow-emerald-500/40" },
+              { name: "FEE & PAYMENTS", icon: CreditCard, href: "/admissions", bg: "bg-orange-500", shadow: "shadow-orange-500/40" },
+              { name: "DOWNLOADS", icon: FileText, href: "/downloads", bg: "bg-pink-500", shadow: "shadow-pink-500/40" },
+              { name: "CALENDAR", icon: Calendar, href: "/events", bg: "bg-yellow-400", shadow: "shadow-yellow-400/40" },
+              { name: "NOTICES", icon: Bell, href: "/", bg: "bg-blue-500", shadow: "shadow-blue-500/40" },
+              { name: "ALUMNI", icon: UserCheck, href: "/about", bg: "bg-lime-500", shadow: "shadow-lime-500/40" },
+              { name: "SCHOLARSHIPS", icon: Award, href: "/admissions", bg: "bg-purple-500", shadow: "shadow-purple-500/40" },
+              { name: "RESULTS", icon: ClipboardList, href: "/downloads", bg: "bg-teal-500", shadow: "shadow-teal-500/40" },
+              { name: "TIME TABLE", icon: Clock, href: "/downloads", bg: "bg-amber-500", shadow: "shadow-amber-500/40" },
+              { name: "LIBRARY", icon: Library, href: "/facilities", bg: "bg-cyan-500", shadow: "shadow-cyan-500/40" },
+              { name: "NCC / NSS", icon: Flag, href: "/ncc-nss", bg: "bg-red-500", shadow: "shadow-red-500/40" },
+              { name: "CONTACT US", icon: Phone, href: "/contact", bg: "bg-green-600", shadow: "shadow-green-600/40" },
             ].map((item, idx) => (
               <Link 
                 key={idx} 
                 to={item.href} 
                 className="flex flex-col items-center group"
               >
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full ${item.bg} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                  <item.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 text-white" />
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full ${item.bg} flex items-center justify-center shadow-lg ${item.shadow} group-hover:scale-110 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out`}>
+                  <item.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <span className="mt-2 md:mt-3 text-[10px] sm:text-xs md:text-sm font-medium text-foreground text-center leading-tight">
+                <span className="mt-2 md:mt-3 text-[10px] sm:text-xs md:text-sm font-medium text-foreground text-center leading-tight group-hover:text-primary transition-colors duration-300">
                   {item.name}
                 </span>
               </Link>
