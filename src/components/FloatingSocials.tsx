@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle } from "lucide-react";
 
 const socials = [
   { icon: Facebook, href: "#", bg: "bg-[#1877F2]", label: "Facebook" },
@@ -6,11 +6,12 @@ const socials = [
   { icon: Instagram, href: "#", bg: "bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737]", label: "Instagram" },
   { icon: Linkedin, href: "#", bg: "bg-[#0A66C2]", label: "LinkedIn" },
   { icon: Youtube, href: "#", bg: "bg-[#FF0000]", label: "YouTube" },
+  { icon: MessageCircle, href: "https://wa.me/919837320170", bg: "bg-[#25D366]", label: "WhatsApp" },
 ];
 
 const FloatingSocials = () => {
   return (
-    <div className="fixed bottom-6 left-4 z-50 flex gap-1">
+    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col">
       {socials.map((social) => {
         const Icon = social.icon;
         return (
@@ -20,9 +21,9 @@ const FloatingSocials = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            className={`${social.bg} w-8 h-8 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-200 shadow-md`}
+            className={`${social.bg} w-10 h-10 flex items-center justify-center text-white hover:w-12 transition-all duration-200 shadow-md`}
           >
-            <Icon className="w-4 h-4" />
+            <Icon className="w-5 h-5" />
           </a>
         );
       })}

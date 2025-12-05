@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, Clock, ChevronDown, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import collegeLogo from "@/assets/college-logo.jpg";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,9 +16,16 @@ import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHindi, setIsHindi] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const toggleLanguage = () => {
+    setIsHindi(!isHindi);
+    // Placeholder for actual translation logic
+  };
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -76,10 +84,27 @@ const Header = () => {
               <Clock className="w-3 h-3" />
               Mon - Sat: 9:00 AM - 5:00 PM
             </span>
-            <div className="flex gap-1 text-xs">
+            <div className="flex gap-1 text-xs items-center">
               <button className="px-2 py-0.5 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A+</button>
               <button className="px-2 py-0.5 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A</button>
               <button className="px-2 py-0.5 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20">A-</button>
+              <span className="w-px h-4 bg-primary-foreground/30 mx-1"></span>
+              <button 
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-1 bg-primary-foreground/10 rounded hover:bg-primary-foreground/20"
+                aria-label="Toggle dark mode"
+              >
+                {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+              </button>
+              <button 
+                onClick={toggleLanguage}
+                className={cn(
+                  "px-2 py-0.5 rounded font-medium transition-colors",
+                  isHindi ? "bg-gold text-gold-foreground" : "bg-primary-foreground/10 hover:bg-primary-foreground/20"
+                )}
+              >
+                {isHindi ? "EN" : "हिंदी"}
+              </button>
             </div>
           </div>
         </div>
