@@ -202,20 +202,30 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500" },
-              { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500" },
-              { title: "Inter-College Sports Meet", date: "10-12 Jan 2025", location: "Sports Ground", category: "Sports", color: "bg-green-500" },
-              { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500" },
-              { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500" },
-              { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500" },
+              { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500", gradient: "from-purple-500/80 to-purple-700/80" },
+              { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500", gradient: "from-amber-500/80 to-amber-700/80" },
+              { title: "Inter-College Sports Meet", date: "10-12 Jan 2025", location: "Sports Ground", category: "Sports", color: "bg-green-500", gradient: "from-green-500/80 to-green-700/80" },
+              { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500", gradient: "from-blue-500/80 to-blue-700/80" },
+              { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500", gradient: "from-amber-500/80 to-amber-700/80" },
+              { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500", gradient: "from-purple-500/80 to-purple-700/80" },
             ].map((event, idx) => (
-              <Card key={idx} className="hover-lift overflow-hidden group">
-                <div className={`h-1.5 ${event.color}`} />
+              <Card key={idx} className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                {/* Image Thumbnail */}
+                <div className={`relative h-40 bg-gradient-to-br ${event.gradient} overflow-hidden`}>
+                  <div className="absolute inset-0 opacity-20" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                  }} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Calendar className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                </div>
                 <CardContent className="p-5">
                   <span className={`px-2 py-1 text-xs font-medium rounded text-white ${event.color}`}>
                     {event.category}
                   </span>
-                  <h3 className="font-heading text-lg font-bold text-foreground mt-3 mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-heading text-lg font-bold text-foreground mt-3 mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {event.title}
                   </h3>
                   <div className="space-y-1.5 text-sm text-muted-foreground">
