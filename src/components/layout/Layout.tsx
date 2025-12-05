@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import FloatingSocials from "../FloatingSocials";
+import ScrollToTop from "../ScrollToTop";
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,6 +14,8 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <FloatingSocials />
+      <ScrollToTop />
     </div>
   );
 };
