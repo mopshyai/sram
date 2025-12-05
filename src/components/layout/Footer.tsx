@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Youtube, Instagram, GraduationCap } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Youtube, Instagram } from "lucide-react";
+import collegeLogo from "@/assets/college-logo.jpg";
 
 const Footer = () => {
   const quickLinks = [
@@ -34,9 +35,11 @@ const Footer = () => {
           {/* About Column */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center">
-                <GraduationCap className="w-7 h-7 text-gold-foreground" />
-              </div>
+              <img 
+                src={collegeLogo} 
+                alt="Shri Ram Adarsh Mahavidyalaya Logo" 
+                className="w-12 h-12 rounded-full object-cover border-2 border-gold"
+              />
               <div>
                 <h3 className="font-heading text-lg font-bold">Shri Ram Adarsh</h3>
                 <p className="text-sm text-primary-foreground/70">Mahavidyalaya</p>

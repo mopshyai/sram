@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Clock, ChevronDown, GraduationCap } from "lucide-react";
+import { Menu, X, Phone, Mail, Clock, ChevronDown } from "lucide-react";
+import collegeLogo from "@/assets/college-logo.jpg";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -89,9 +90,11 @@ const Header = () => {
           <div className="flex items-center justify-between gap-4">
             {/* Logo Section */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-                <GraduationCap className="w-8 h-8 md:w-10 md:h-10 text-gold" />
-              </div>
+              <img 
+                src={collegeLogo} 
+                alt="Shri Ram Adarsh Mahavidyalaya Logo" 
+                className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover shadow-md group-hover:shadow-lg transition-shadow border-2 border-gold"
+              />
               <div className="hidden sm:block">
                 <h1 className="font-heading text-lg md:text-xl lg:text-2xl font-bold text-primary leading-tight">
                   Shri Ram Adarsh Mahavidyalaya
