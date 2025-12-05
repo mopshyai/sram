@@ -28,68 +28,69 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="hero-gradient text-primary-foreground py-16">
+      <section className="hero-gradient text-primary-foreground py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Contact Us</h1>
+          <p className="text-primary-foreground/80 text-base md:text-lg max-w-2xl mx-auto">
             We're here to help. Reach out to us for any queries regarding admissions, courses, or general information.
           </p>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-10 md:py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
             <Card className="text-center hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <MapPin className="w-7 h-7 text-primary" />
+              <CardContent className="p-4 md:pt-6">
+                <div className="w-12 h-12 md:w-14 md:h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                  <MapPin className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-foreground mb-2">Address</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="font-heading text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Address</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">
                   Panwari, Sikandra<br />
                   Agra - 282007<br />
-                  Uttar Pradesh, India
+                  <span className="hidden md:inline">Uttar Pradesh, India</span>
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-14 h-14 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                  <Phone className="w-7 h-7 text-gold" />
+              <CardContent className="p-4 md:pt-6">
+                <div className="w-12 h-12 md:w-14 md:h-14 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-3 md:mb-4">
+                  <Phone className="w-6 h-6 md:w-7 md:h-7 text-gold" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-foreground mb-2">Phone</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="font-heading text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Phone</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">
                   <a href="tel:9837320170" className="hover:text-primary block">9837320170</a>
                   <a href="tel:9690704180" className="hover:text-primary block">9690704180</a>
-                  <a href="tel:7500478060" className="hover:text-primary block">7500478060</a>
+                  <a href="tel:7500478060" className="hover:text-primary block hidden md:block">7500478060</a>
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-14 h-14 mx-auto rounded-full bg-navy/10 flex items-center justify-center mb-4">
-                  <Mail className="w-7 h-7 text-navy" />
+              <CardContent className="p-4 md:pt-6">
+                <div className="w-12 h-12 md:w-14 md:h-14 mx-auto rounded-full bg-navy/10 flex items-center justify-center mb-3 md:mb-4">
+                  <Mail className="w-6 h-6 md:w-7 md:h-7 text-navy" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-foreground mb-2">Email</h3>
-                <p className="text-muted-foreground text-sm">
+                <h3 className="font-heading text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Email</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">
                   <a href="mailto:shriramadarsh190@gmail.com" className="hover:text-primary break-all">
-                    shriramadarsh190@gmail.com
+                    <span className="hidden md:inline">shriramadarsh190@gmail.com</span>
+                    <span className="md:hidden">Email Us</span>
                   </a>
                 </p>
               </CardContent>
             </Card>
             <Card className="text-center hover-lift">
-              <CardContent className="pt-6">
-                <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Clock className="w-7 h-7 text-primary" />
+              <CardContent className="p-4 md:pt-6">
+                <div className="w-12 h-12 md:w-14 md:h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                  <Clock className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-foreground mb-2">Office Hours</h3>
-                <p className="text-muted-foreground text-sm">
-                  Monday - Saturday<br />
+                <h3 className="font-heading text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">Hours</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">
+                  Mon - Sat<br />
                   9:00 AM - 5:00 PM<br />
-                  <span className="text-xs">(Closed on Sundays & Holidays)</span>
+                  <span className="text-[10px] md:text-xs">(Closed Sun & Holidays)</span>
                 </p>
               </CardContent>
             </Card>
@@ -189,22 +190,22 @@ const Contact = () => {
       </section>
 
       {/* All Phone Numbers */}
-      <section className="py-12 bg-primary text-primary-foreground">
+      <section className="py-10 md:py-12 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h3 className="font-heading text-2xl font-bold">Quick Contact Numbers</h3>
-            <p className="text-primary-foreground/70 text-sm mt-2">Call us directly for immediate assistance</p>
+          <div className="text-center mb-6 md:mb-8">
+            <h3 className="font-heading text-xl md:text-2xl font-bold">Quick Contact Numbers</h3>
+            <p className="text-primary-foreground/70 text-xs md:text-sm mt-2">Call us directly for immediate assistance</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 max-w-4xl mx-auto">
             {contactNumbers.map((contact, idx) => (
               <a
                 key={idx}
                 href={`tel:${contact.number}`}
-                className="flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 px-5 py-3 rounded-full transition-colors"
+                className="flex flex-col items-center gap-1 bg-primary-foreground/10 hover:bg-primary-foreground/20 active:bg-primary-foreground/30 px-3 py-3 md:px-5 md:py-4 rounded-xl transition-colors text-center"
               >
-                <Phone className="w-4 h-4" />
-                <span className="font-medium">{contact.number}</span>
-                <span className="text-xs text-primary-foreground/60">({contact.name})</span>
+                <Phone className="w-5 h-5 mb-1" />
+                <span className="font-medium text-sm md:text-base">{contact.number}</span>
+                <span className="text-[10px] md:text-xs text-primary-foreground/60">{contact.name}</span>
               </a>
             ))}
           </div>

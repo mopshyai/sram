@@ -72,14 +72,14 @@ const Downloads = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-primary-dark to-navy overflow-hidden">
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-primary via-primary-dark to-navy overflow-hidden">
         <div className="absolute inset-0 bg-primary/20 opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
-            <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
               Download Center
             </h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-white/80 max-w-2xl mx-auto">
               Access all official forms, syllabus, prospectus, and important documents
             </p>
           </div>
@@ -87,41 +87,41 @@ const Downloads = () => {
       </section>
 
       {/* Downloads Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-10 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {downloadCategories.map((category, idx) => (
               <div key={idx} className="animate-fade-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <category.icon className="w-6 h-6 text-primary" />
+                <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <category.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   </div>
-                  <h2 className="font-heading text-2xl font-bold text-foreground">
+                  <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">
                     {category.title}
                   </h2>
                 </div>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                   {category.items.map((item, itemIdx) => (
                     <div 
                       key={itemIdx}
-                      className="bg-card border border-border rounded-lg p-4 hover:shadow-lg hover:border-primary/30 transition-all duration-300 group"
+                      className="bg-card border border-border rounded-lg p-3 md:p-4 hover:shadow-lg hover:border-primary/30 active:scale-[0.99] transition-all duration-300 group"
                     >
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-start gap-3">
-                          <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                            <FileText className="w-5 h-5 text-primary" />
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-start gap-2 md:gap-3 flex-1 min-w-0">
+                          <div className="w-9 h-9 md:w-10 md:h-10 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <FileText className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                           </div>
-                          <div>
-                            <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium text-sm md:text-base text-foreground group-hover:text-primary transition-colors line-clamp-2">
                               {item.name}
                             </h3>
-                            <p className="text-sm text-muted-foreground mt-1">
+                            <p className="text-xs md:text-sm text-muted-foreground mt-0.5 md:mt-1">
                               {item.type} • {item.size}
                             </p>
                           </div>
                         </div>
-                        <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10">
+                        <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10 shrink-0 h-9 w-9 p-0">
                           <Download className="w-4 h-4" />
                         </Button>
                       </div>
@@ -135,21 +135,21 @@ const Downloads = () => {
       </section>
 
       {/* Help Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-10 md:py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="bg-card border border-border rounded-xl p-8 text-center">
-            <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+          <div className="bg-card border border-border rounded-xl p-5 md:p-8 text-center">
+            <h3 className="font-heading text-lg md:text-xl font-bold text-foreground mb-2">
               Can't find what you're looking for?
             </h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground text-sm md:text-base mb-4">
               Contact our office for any specific documents or forms you need.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Button variant="default" className="bg-gold hover:bg-gold/90 text-primary-dark">
                 Contact Office
               </Button>
-              <Button variant="outline">
-                Email: shriramadarsh190@gmail.com
+              <Button variant="outline" className="text-xs md:text-sm">
+                shriramadarsh190@gmail.com
               </Button>
             </div>
           </div>

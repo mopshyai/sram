@@ -205,21 +205,24 @@ const Courses = () => {
       </section>
 
       {/* Courses Tabs */}
-      <section className="py-16 bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="education" className="w-full">
-            <TabsList className="flex flex-wrap justify-center gap-2 mb-8 h-auto bg-transparent">
-              {Object.entries(courseCategories).map(([key, category]) => (
-                <TabsTrigger 
-                  key={key} 
-                  value={key}
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-4 py-2"
-                >
-                  <category.icon className="w-4 h-4 mr-2" />
-                  {category.title.split(' ')[0]}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            {/* Scrollable tabs container for mobile */}
+            <div className="overflow-x-auto -mx-4 px-4 pb-2 mb-6 md:mb-8 scrollbar-hide">
+              <TabsList className="inline-flex md:flex md:flex-wrap md:justify-center gap-2 h-auto bg-transparent min-w-max md:min-w-0">
+                {Object.entries(courseCategories).map(([key, category]) => (
+                  <TabsTrigger 
+                    key={key} 
+                    value={key}
+                    className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-3 md:px-4 py-2 text-sm md:text-base whitespace-nowrap"
+                  >
+                    <category.icon className="w-4 h-4 mr-1.5 md:mr-2" />
+                    {category.title.split(' ')[0]}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
             {Object.entries(courseCategories).map(([key, category]) => (
               <TabsContent key={key} value={key}>

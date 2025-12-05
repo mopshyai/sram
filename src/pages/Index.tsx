@@ -70,14 +70,14 @@ const Index = () => {
             <p className="text-sm md:text-base text-primary-foreground/80 mb-8">
               Affiliated to Dr. Bhimrao Ambedkar University, Agra
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground font-semibold shadow-lg">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 sm:px-0">
+              <Button asChild size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground font-semibold shadow-lg w-full sm:w-auto">
                 <Link to="/admissions">
                   Admissions 2025-26
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 w-full sm:w-auto">
                 <Link to="/courses">Explore Courses</Link>
               </Button>
             </div>
