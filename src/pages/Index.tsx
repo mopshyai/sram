@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,6 +18,26 @@ const Index = () => {
   const isMobile = useIsMobile();
   const [eventsKey, setEventsKey] = useState(0);
   const [noticesKey, setNoticesKey] = useState(0);
+  const [quickLinksVisible, setQuickLinksVisible] = useState(false);
+  const quickLinksRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setQuickLinksVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    if (quickLinksRef.current) {
+      observer.observe(quickLinksRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
 
   const handleEventsRefresh = useCallback(async () => {
     // Simulate refresh delay
@@ -154,9 +174,9 @@ const Index = () => {
       </section>
 
       {/* Quick Links */}
-      <section className="py-12 md:py-16 bg-background">
+      <section ref={quickLinksRef} className="py-12 md:py-16 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-10">
+          <div className={`text-center mb-8 md:mb-10 transition-all duration-500 ${quickLinksVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
               Quick Links
             </h2>
@@ -182,7 +202,8 @@ const Index = () => {
               <Link 
                 key={idx} 
                 to={item.href} 
-                className="flex flex-col items-center group"
+                className={`flex flex-col items-center group transition-all duration-500 ${quickLinksVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: quickLinksVisible ? `${idx * 50}ms` : '0ms' }}
               >
                 <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full ${item.bg} flex items-center justify-center shadow-lg ${item.shadow} group-hover:scale-110 group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out`}>
                   <item.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 text-white group-hover:scale-110 transition-transform duration-300" />
