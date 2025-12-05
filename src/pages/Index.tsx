@@ -189,6 +189,60 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Recent Events Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Recent Events & Activities
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Stay updated with the latest happenings at our college
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500" },
+              { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500" },
+              { title: "Inter-College Sports Meet", date: "10-12 Jan 2025", location: "Sports Ground", category: "Sports", color: "bg-green-500" },
+              { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500" },
+              { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500" },
+              { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500" },
+            ].map((event, idx) => (
+              <Card key={idx} className="hover-lift overflow-hidden group">
+                <div className={`h-1.5 ${event.color}`} />
+                <CardContent className="p-5">
+                  <span className={`px-2 py-1 text-xs font-medium rounded text-white ${event.color}`}>
+                    {event.category}
+                  </span>
+                  <h3 className="font-heading text-lg font-bold text-foreground mt-3 mb-2 group-hover:text-primary transition-colors">
+                    {event.title}
+                  </h3>
+                  <div className="space-y-1.5 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      <span>{event.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-primary" />
+                      <span>{event.location}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button asChild className="bg-primary hover:bg-primary-dark">
+              <Link to="/events">
+                View All Events
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Facilities Preview */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">

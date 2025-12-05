@@ -18,6 +18,7 @@ import MissionVision from "./pages/MissionVision";
 import AntiRagging from "./pages/AntiRagging";
 import CodeOfConduct from "./pages/CodeOfConduct";
 import MandatoryDisclosure from "./pages/MandatoryDisclosure";
+import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/anti-ragging" element={<AntiRagging />} />
           <Route path="/code-of-conduct" element={<CodeOfConduct />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
+          <Route path="/events" element={<Events />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
