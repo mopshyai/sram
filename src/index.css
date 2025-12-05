@@ -222,3 +222,20 @@
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+/* Hide Google Translate bar */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
