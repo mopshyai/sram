@@ -7,6 +7,7 @@ import {
   MapPin, ChevronRight, Shield, Microscope, Library, Bus, 
   FileText, Calendar, Bell, ArrowRight
 } from "lucide-react";
+import collegeLogo from "@/assets/college-logo.jpg";
 
 const Index = () => {
   const stats = [
@@ -49,9 +50,11 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-gold flex items-center justify-center shadow-xl animate-float">
-              <GraduationCap className="w-14 h-14 md:w-20 md:h-20 text-gold-foreground" />
-            </div>
+            <img 
+              src={collegeLogo} 
+              alt="Shri Ram Adarsh Mahavidyalaya Logo" 
+              className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 rounded-full object-cover shadow-xl animate-float border-4 border-gold"
+            />
             <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-up">
               Shri Ram Adarsh Mahavidyalaya
             </h1>
