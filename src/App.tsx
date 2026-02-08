@@ -31,6 +31,7 @@ import Library from "./pages/Library";
 import Research from "./pages/Research";
 import FeeStructure from "./pages/FeeStructure";
 import Prospectus from "./pages/Prospectus";
+import Faculty from "./pages/Faculty";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/research" element={<Research />} />
             <Route path="/fee-structure" element={<FeeStructure />} />
             <Route path="/prospectus" element={<Prospectus />} />
+            <Route path="/faculty" element={<Faculty />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

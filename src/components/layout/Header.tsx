@@ -42,6 +42,7 @@ const Header = () => {
       path: "/about",
       children: [
         { name: "About Us", path: "/about" },
+        { name: "Faculty", path: "/faculty" },
         { name: "Chairman's Message", path: "/chairman-message" },
         { name: "Mission & Vision", path: "/mission-vision" },
         { name: "History", path: "/about#history" },

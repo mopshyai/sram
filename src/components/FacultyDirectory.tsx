@@ -220,8 +220,8 @@ const FacultyDirectory = () => {
         {/* View All Button */}
         <div className="text-center mt-10">
           <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            <Link to="/departments">
-              View All Departments
+            <Link to="/faculty">
+              View All Faculty
               <ChevronRight className="ml-1 w-4 h-4" />
             </Link>
           </Button>
