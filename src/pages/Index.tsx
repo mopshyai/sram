@@ -15,6 +15,7 @@ import { useInView } from "@/hooks/use-in-view";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { toast } from "sonner";
 import NoticeBoard from "@/components/NoticeBoard";
+import FacultyDirectory from "@/components/FacultyDirectory";
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -365,6 +366,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Faculty Directory */}
+      <FacultyDirectory />
 
       {/* Notice Board & Announcements */}
       <NoticeBoard />
