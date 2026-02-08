@@ -229,7 +229,9 @@ const Header = () => {
                                   <Link
                                     to={child.path}
                                     className={cn(
-                                      "block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary text-sm",
+                                      "block select-none rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 text-sm",
+                                      "hover:bg-muted hover:text-primary hover:translate-x-1 hover:shadow-sm",
+                                      "focus:bg-muted focus:text-primary",
                                       isActive(child.path) && "bg-muted text-primary font-medium"
                                     )}
                                   >
