@@ -32,6 +32,7 @@ import Research from "./pages/Research";
 import FeeStructure from "./pages/FeeStructure";
 import Prospectus from "./pages/Prospectus";
 import Faculty from "./pages/Faculty";
+import FacultyProfile from "./pages/FacultyProfile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -72,6 +73,7 @@ const App = () => (
             <Route path="/fee-structure" element={<FeeStructure />} />
             <Route path="/prospectus" element={<Prospectus />} />
             <Route path="/faculty" element={<Faculty />} />
+            <Route path="/faculty/:id" element={<FacultyProfile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
