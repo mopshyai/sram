@@ -6,231 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { 
   GraduationCap, Mail, Phone, ChevronRight, Search,
-  BookOpen, Shield, Microscope, Building, Users, Award, Clock
+  Building, Users, Award, Clock, User
 } from "lucide-react";
-
-interface FacultyMember {
-  id: number;
-  name: string;
-  designation: string;
-  department: string;
-  qualification: string;
-  experience: string;
-  specialization: string;
-  subjects: string[];
-  image: string;
-  email: string;
-  phone?: string;
-}
-
-const departments = [
-  { id: "all", name: "All Faculty", icon: Users },
-  { id: "education", name: "Education", icon: GraduationCap },
-  { id: "law", name: "Law", icon: Shield },
-  { id: "pharmacy", name: "Pharmacy", icon: Microscope },
-  { id: "arts", name: "Arts & Science", icon: BookOpen },
-  { id: "commerce", name: "Commerce", icon: Building },
-];
-
-const facultyData: FacultyMember[] = [
-  {
-    id: 1,
-    name: "Dr. Rajesh Kumar Sharma",
-    designation: "Principal & HOD",
-    department: "education",
-    qualification: "Ph.D., M.Ed., B.Ed.",
-    experience: "25+ Years",
-    specialization: "Educational Psychology",
-    subjects: ["Educational Psychology", "Curriculum Development"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-    email: "principal@sram.edu.in",
-    phone: "9837320170",
-  },
-  {
-    id: 2,
-    name: "Prof. Sunita Verma",
-    designation: "Associate Professor",
-    department: "arts",
-    qualification: "M.A., Ph.D. (Hindi)",
-    experience: "18 Years",
-    specialization: "Hindi Literature",
-    subjects: ["Hindi Literature", "Modern Poetry"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face",
-    email: "sunita.v@sram.edu.in",
-  },
-  {
-    id: 3,
-    name: "Dr. Amit Singh",
-    designation: "Assistant Professor",
-    department: "law",
-    qualification: "LL.M., Ph.D.",
-    experience: "12 Years",
-    specialization: "Constitutional Law",
-    subjects: ["Constitutional Law", "Human Rights"],
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-    email: "amit.singh@sram.edu.in",
-    phone: "9876543210",
-  },
-  {
-    id: 4,
-    name: "Dr. Priya Agarwal",
-    designation: "HOD - Pharmacy",
-    department: "pharmacy",
-    qualification: "M.Pharm, Ph.D.",
-    experience: "15 Years",
-    specialization: "Pharmaceutical Chemistry",
-    subjects: ["Pharmaceutical Chemistry", "Drug Design"],
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
-    email: "priya.a@sram.edu.in",
-  },
-  {
-    id: 5,
-    name: "Prof. Vikram Yadav",
-    designation: "Associate Professor",
-    department: "commerce",
-    qualification: "M.Com, MBA, NET",
-    experience: "14 Years",
-    specialization: "Financial Management",
-    subjects: ["Financial Accounting", "Business Management"],
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-    email: "vikram.y@sram.edu.in",
-  },
-  {
-    id: 6,
-    name: "Dr. Meena Kumari",
-    designation: "Assistant Professor",
-    department: "education",
-    qualification: "M.Ed., Ph.D.",
-    experience: "10 Years",
-    specialization: "Special Education",
-    subjects: ["Special Education", "Inclusive Teaching"],
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face",
-    email: "meena.k@sram.edu.in",
-  },
-  {
-    id: 7,
-    name: "Prof. Ramesh Chandra",
-    designation: "Senior Lecturer",
-    department: "arts",
-    qualification: "M.Sc. (Physics), B.Ed.",
-    experience: "20 Years",
-    specialization: "Quantum Physics",
-    subjects: ["Physics", "Applied Mathematics"],
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face",
-    email: "ramesh.c@sram.edu.in",
-  },
-  {
-    id: 8,
-    name: "Dr. Kavita Mishra",
-    designation: "Assistant Professor",
-    department: "law",
-    qualification: "LL.B., LL.M.",
-    experience: "8 Years",
-    specialization: "Criminal Law",
-    subjects: ["Criminal Law", "Evidence Law"],
-    image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=300&h=300&fit=crop&crop=face",
-    email: "kavita.m@sram.edu.in",
-  },
-  {
-    id: 9,
-    name: "Dr. Suresh Patel",
-    designation: "Associate Professor",
-    department: "pharmacy",
-    qualification: "M.Pharm, Ph.D.",
-    experience: "16 Years",
-    specialization: "Pharmacology",
-    subjects: ["Pharmacology", "Clinical Pharmacy"],
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face",
-    email: "suresh.p@sram.edu.in",
-    phone: "9123456789",
-  },
-  {
-    id: 10,
-    name: "Prof. Anita Saxena",
-    designation: "Assistant Professor",
-    department: "commerce",
-    qualification: "M.Com, Ph.D., CA",
-    experience: "11 Years",
-    specialization: "Taxation & Auditing",
-    subjects: ["Taxation", "Auditing", "Cost Accounting"],
-    image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=300&h=300&fit=crop&crop=face",
-    email: "anita.s@sram.edu.in",
-  },
-  {
-    id: 11,
-    name: "Dr. Manoj Tiwari",
-    designation: "Senior Lecturer",
-    department: "education",
-    qualification: "M.Ed., M.Phil., Ph.D.",
-    experience: "22 Years",
-    specialization: "Educational Technology",
-    subjects: ["Educational Technology", "Research Methodology"],
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=face",
-    email: "manoj.t@sram.edu.in",
-  },
-  {
-    id: 12,
-    name: "Prof. Neha Gupta",
-    designation: "Assistant Professor",
-    department: "arts",
-    qualification: "M.A. (English), NET",
-    experience: "7 Years",
-    specialization: "English Literature",
-    subjects: ["English Literature", "Communication Skills"],
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&crop=face",
-    email: "neha.g@sram.edu.in",
-  },
-  {
-    id: 13,
-    name: "Dr. Ravi Shankar",
-    designation: "HOD - Law",
-    department: "law",
-    qualification: "LL.M., Ph.D., D.Litt.",
-    experience: "28 Years",
-    specialization: "International Law",
-    subjects: ["International Law", "Jurisprudence"],
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face",
-    email: "ravi.s@sram.edu.in",
-    phone: "9988776655",
-  },
-  {
-    id: 14,
-    name: "Prof. Deepa Sharma",
-    designation: "Associate Professor",
-    department: "pharmacy",
-    qualification: "M.Pharm, MBA",
-    experience: "13 Years",
-    specialization: "Pharmaceutical Management",
-    subjects: ["Hospital Pharmacy", "Pharma Marketing"],
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face",
-    email: "deepa.s@sram.edu.in",
-  },
-  {
-    id: 15,
-    name: "Dr. Arun Kumar",
-    designation: "HOD - Commerce",
-    department: "commerce",
-    qualification: "M.Com, Ph.D., NET",
-    experience: "19 Years",
-    specialization: "Banking & Finance",
-    subjects: ["Banking", "Corporate Finance", "Economics"],
-    image: "https://images.unsplash.com/photo-1556157382-97ede2916cd9?w=300&h=300&fit=crop&crop=face",
-    email: "arun.k@sram.edu.in",
-    phone: "9876512340",
-  },
-  {
-    id: 16,
-    name: "Prof. Shalini Jain",
-    designation: "Assistant Professor",
-    department: "arts",
-    qualification: "M.A. (History), Ph.D.",
-    experience: "9 Years",
-    specialization: "Medieval Indian History",
-    subjects: ["Indian History", "World History"],
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
-    email: "shalini.j@sram.edu.in",
-  },
-];
+import { 
+  facultyData, 
+  departments, 
+  getDepartmentColor, 
+  getDepartmentLabel 
+} from "@/data/facultyData";
 
 const Faculty = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -246,21 +29,6 @@ const Faculty = () => {
       f.subjects.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesDepartment && matchesSearch;
   });
-
-  const getDepartmentColor = (dept: string) => {
-    const colors: Record<string, string> = {
-      education: "bg-emerald-500",
-      law: "bg-blue-500",
-      pharmacy: "bg-purple-500",
-      arts: "bg-amber-500",
-      commerce: "bg-teal-500",
-    };
-    return colors[dept] || "bg-primary";
-  };
-
-  const getDepartmentLabel = (dept: string) => {
-    return departments.find(d => d.id === dept)?.name || dept;
-  };
 
   // Calculate stats
   const totalExperience = facultyData.reduce((acc, f) => {
@@ -451,6 +219,18 @@ const Faculty = () => {
                           </a>
                         )}
                       </div>
+
+                      {/* View Profile Button */}
+                      <Button 
+                        asChild 
+                        variant="outline" 
+                        className="w-full mt-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
+                      >
+                        <Link to={`/faculty/${faculty.id}`}>
+                          <User className="w-4 h-4 mr-2" />
+                          View Profile
+                        </Link>
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
