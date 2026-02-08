@@ -14,11 +14,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useInView } from "@/hooks/use-in-view";
 import { PullToRefresh } from "@/components/PullToRefresh";
 import { toast } from "sonner";
+import NoticeBoard from "@/components/NoticeBoard";
 
 const Index = () => {
   const isMobile = useIsMobile();
   const [eventsKey, setEventsKey] = useState(0);
-  const [noticesKey, setNoticesKey] = useState(0);
   const { ref: quickLinksRef, isInView: quickLinksVisible } = useInView<HTMLElement>();
 
   const handleEventsRefresh = useCallback(async () => {
@@ -26,13 +26,6 @@ const Index = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     setEventsKey(prev => prev + 1);
     toast.success("Events refreshed!");
-  }, []);
-
-  const handleNoticesRefresh = useCallback(async () => {
-    // Simulate refresh delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setNoticesKey(prev => prev + 1);
-    toast.success("Notices refreshed!");
   }, []);
   
   const stats = [
@@ -55,13 +48,6 @@ const Index = () => {
     { name: "Science Labs", icon: Microscope, desc: "Fully equipped laboratories" },
     { name: "Free Bus Service", icon: Bus, desc: "For girl students" },
     { name: "5 Acre Campus", icon: Building, desc: "Spacious & green environment" },
-  ];
-
-  const notices = [
-    { title: "Admissions Open 2025-26", date: "Dec 2024", isNew: true },
-    { title: "D.Pharma Admission - BTE Code 1708", date: "Dec 2024", isNew: true },
-    { title: "Free Education for Orphan Students", date: "Ongoing", isNew: false },
-    { title: "NCC & NSS Enrollment Open", date: "2025", isNew: false },
   ];
 
   return (
@@ -117,7 +103,12 @@ const Index = () => {
           </div>
           <div className="flex-1 overflow-hidden py-2.5 sm:py-3 px-2 sm:px-4">
             <div className="flex items-center gap-4 sm:gap-6 animate-marquee whitespace-nowrap text-sm sm:text-base">
-              {notices.map((notice, idx) => (
+              {[
+                { title: "🎓 Admissions Open 2025-26", isNew: true },
+                { title: "📢 D.Pharma (BTE Code-1708) Available", isNew: true },
+                { title: "🆓 Free Education for Orphan Students", isNew: false },
+                { title: "🏆 NCC & NSS Enrollment Open", isNew: false },
+              ].map((notice, idx) => (
                 <span key={idx} className="flex items-center gap-1.5 sm:gap-2">
                   {notice.isNew && <span className="px-1 sm:px-1.5 py-0.5 bg-gold text-gold-foreground text-[10px] sm:text-xs rounded font-medium">NEW</span>}
                   <span>{notice.title}</span>
@@ -375,70 +366,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Notice Board & Downloads */}
-      <section className="py-16 bg-muted/30 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Notice Board */}
-            <PullToRefresh onRefresh={handleNoticesRefresh} disabled={!isMobile}>
-              <Card key={noticesKey}>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="font-heading text-xl font-bold text-foreground flex items-center gap-2">
-                      <Bell className="w-5 h-5 text-gold" />
-                      Notice Board
-                    </h3>
-                    <div className="flex items-center gap-3">
-                      {isMobile && (
-                        <span className="text-xs text-muted-foreground/70">Pull to refresh</span>
-                      )}
-                      <Link to="/downloads" className="text-primary text-sm hover:underline">View All</Link>
-                    </div>
-                  </div>
-                  <ul className="space-y-4">
-                    {notices.map((notice, idx) => (
-                      <li key={idx} className="flex items-start gap-3 pb-3 border-b border-border last:border-0">
-                        <Calendar className="w-4 h-4 text-muted-foreground mt-1 shrink-0" />
-                        <div className="flex-1">
-                          <p className="text-foreground font-medium text-sm flex items-center gap-2">
-                            {notice.title}
-                            {notice.isNew && <span className="px-1.5 py-0.5 bg-primary text-primary-foreground text-xs rounded">NEW</span>}
-                          </p>
-                          <p className="text-muted-foreground text-xs mt-0.5">{notice.date}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </PullToRefresh>
-
-            {/* Quick Downloads */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-heading text-xl font-bold text-foreground flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-gold" />
-                    Quick Downloads
-                  </h3>
-                  <Link to="/downloads" className="text-primary text-sm hover:underline">View All</Link>
-                </div>
-                <ul className="space-y-3">
-                  {["Admission Form 2025-26", "Prospectus", "Fee Structure", "Syllabus", "Exam Schedule"].map((item, idx) => (
-                    <li key={idx}>
-                      <Link to="/downloads" className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
-                        <FileText className="w-4 h-4 text-primary" />
-                        <span className="text-foreground text-sm">{item}</span>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground ml-auto" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/* Notice Board & Announcements */}
+      <NoticeBoard />
 
       {/* CTA Section */}
       <section className="py-16 hero-gradient text-primary-foreground">
