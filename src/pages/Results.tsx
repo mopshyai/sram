@@ -5,12 +5,12 @@ import { FileText, Download, Calendar } from "lucide-react";
 
 const Results = () => {
   const results = [
-    { title: "B.A. Final Year Results 2024", date: "Dec 2024", semester: "6th Semester" },
-    { title: "B.Sc. Final Year Results 2024", date: "Dec 2024", semester: "6th Semester" },
-    { title: "B.Com. Final Year Results 2024", date: "Dec 2024", semester: "6th Semester" },
-    { title: "M.A. Results 2024", date: "Nov 2024", semester: "4th Semester" },
-    { title: "D.Pharma Results 2024", date: "Nov 2024", semester: "2nd Year" },
-    { title: "B.Ed. Results 2024", date: "Oct 2024", semester: "2nd Year" },
+    { title: "B.A. Final Year Results 2025", date: "Dec 2025", semester: "6th Semester" },
+    { title: "B.Sc. Final Year Results 2025", date: "Dec 2025", semester: "6th Semester" },
+    { title: "B.Com. Final Year Results 2025", date: "Dec 2025", semester: "6th Semester" },
+    { title: "M.A. Results 2025", date: "Nov 2025", semester: "4th Semester" },
+    { title: "D.Pharma Results 2025", date: "Nov 2025", semester: "2nd Year" },
+    { title: "B.Ed. Results 2025", date: "Oct 2025", semester: "2nd Year" },
   ];
 
   return (

@@ -185,7 +185,7 @@ const Footer = () => {
       <div className="bg-navy py-4 pb-20 md:pb-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-primary-foreground/70">
-            <p>© 2025 Shri Ram Adarsh Mahavidyalaya. All Rights Reserved.</p>
+            <p>© 2026 Shri Ram Adarsh Mahavidyalaya. All Rights Reserved.</p>
             <p>Affiliated to Dr. Bhimrao Ambedkar University, Agra</p>
           </div>
         </div>
