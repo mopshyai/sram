@@ -4,7 +4,7 @@ const socials = [
   { icon: Facebook, href: "#", bg: "bg-[#1877F2]", label: "Facebook" },
   { icon: Twitter, href: "#", bg: "bg-[#1DA1F2]", label: "Twitter" },
   { icon: Instagram, href: "#", bg: "bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737]", label: "Instagram" },
-  { icon: Linkedin, href: "#", bg: "bg-[#0A66C2]", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/sramagra", bg: "bg-[#0A66C2]", label: "LinkedIn" },
   { icon: Youtube, href: "#", bg: "bg-[#FF0000]", label: "YouTube" },
   { icon: MessageCircle, href: "https://wa.me/919837320170", bg: "bg-[#25D366]", label: "WhatsApp" },
 ];
