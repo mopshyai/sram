@@ -6,12 +6,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Timetable = () => {
   const examSchedules = [
-    { course: "B.A. (All Years)", startDate: "March 15, 2025", endDate: "April 30, 2025" },
-    { course: "B.Sc. (All Years)", startDate: "March 15, 2025", endDate: "April 30, 2025" },
-    { course: "B.Com. (All Years)", startDate: "March 18, 2025", endDate: "May 2, 2025" },
-    { course: "M.A. / M.Sc.", startDate: "April 1, 2025", endDate: "May 15, 2025" },
-    { course: "D.Pharma", startDate: "April 10, 2025", endDate: "May 10, 2025" },
-    { course: "B.Ed.", startDate: "May 1, 2025", endDate: "May 30, 2025" },
+    { course: "B.A. (All Years)", startDate: "March 15, 2026", endDate: "April 30, 2026" },
+    { course: "B.Sc. (All Years)", startDate: "March 15, 2026", endDate: "April 30, 2026" },
+    { course: "B.Com. (All Years)", startDate: "March 18, 2026", endDate: "May 2, 2026" },
+    { course: "M.A. / M.Sc.", startDate: "April 1, 2026", endDate: "May 15, 2026" },
+    { course: "D.Pharma", startDate: "April 10, 2026", endDate: "May 10, 2026" },
+    { course: "B.Ed.", startDate: "May 1, 2026", endDate: "May 30, 2026" },
   ];
 
   const classSchedule = [

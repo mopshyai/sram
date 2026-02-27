@@ -82,7 +82,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 sm:px-0">
               <Button asChild size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground font-semibold shadow-lg w-full sm:w-auto">
                 <Link to="/admissions">
-                  Admissions 2025-26
+                  Admissions 2026-27
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
@@ -105,7 +105,7 @@ const Index = () => {
           <div className="flex-1 overflow-hidden py-2.5 sm:py-3 px-2 sm:px-4">
             <div className="flex items-center gap-4 sm:gap-6 animate-marquee whitespace-nowrap text-sm sm:text-base">
               {[
-                { title: "🎓 Admissions Open 2025-26", isNew: true },
+                { title: "🎓 Admissions Open 2026-27", isNew: true },
                 { title: "📢 D.Pharma (BTE Code-1708) Available", isNew: true },
                 { title: "🆓 Free Education for Orphan Students", isNew: false },
                 { title: "🏆 NCC & NSS Enrollment Open", isNew: false },
@@ -284,12 +284,12 @@ const Index = () => {
           <PullToRefresh onRefresh={handleEventsRefresh} disabled={!isMobile}>
             <div key={eventsKey} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
-                { title: "Annual Day Celebration 2025", date: "15 Jan 2025", location: "College Auditorium", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" },
-                { title: "NCC Camp - Combined Training", date: "20-30 Dec 2024", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" },
-                { title: "Inter-College Sports Meet", date: "10-12 Jan 2025", location: "Sports Ground", category: "Sports", color: "bg-green-500", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" },
-                { title: "Guest Lecture on NEP 2020", date: "5 Jan 2025", location: "Seminar Hall", category: "Academic", color: "bg-blue-500", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" },
-                { title: "NSS Blood Donation Camp", date: "1 Feb 2025", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=400&fit=crop" },
-                { title: "Republic Day Celebration", date: "26 Jan 2025", location: "College Campus", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop" },
+                { title: "Annual Day Celebration 2026", date: "15 Jan 2026", location: "College Auditorium", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop" },
+                { title: "NCC Camp - Combined Training", date: "20-30 Dec 2025", location: "Training Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" },
+                { title: "Inter-College Sports Meet", date: "10-12 Jan 2026", location: "Sports Ground", category: "Sports", color: "bg-green-500", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" },
+                { title: "Guest Lecture on NEP 2020", date: "5 Jan 2026", location: "Seminar Hall", category: "Academic", color: "bg-blue-500", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" },
+                { title: "NSS Blood Donation Camp", date: "1 Feb 2026", location: "Medical Center", category: "NCC/NSS", color: "bg-amber-500", image: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=400&fit=crop" },
+                { title: "Republic Day Celebration", date: "26 Jan 2026", location: "College Campus", category: "Cultural", color: "bg-purple-500", image: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=400&fit=crop" },
               ].slice(0, isMobile ? 3 : 6).map((event, idx) => (
                 <Card key={idx} className="overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                   {/* Image Thumbnail */}

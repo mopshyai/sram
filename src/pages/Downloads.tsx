@@ -8,8 +8,8 @@ const Downloads = () => {
       title: "Admission Forms",
       icon: ClipboardList,
       items: [
-        { name: "UG Admission Form 2025-26", size: "245 KB", type: "PDF" },
-        { name: "PG Admission Form 2025-26", size: "198 KB", type: "PDF" },
+        { name: "UG Admission Form 2026-27", size: "245 KB", type: "PDF" },
+        { name: "PG Admission Form 2026-27", size: "198 KB", type: "PDF" },
         { name: "B.Ed Application Form", size: "312 KB", type: "PDF" },
         { name: "D.El.Ed Application Form", size: "287 KB", type: "PDF" },
         { name: "LLB/BA LLB Application Form", size: "256 KB", type: "PDF" },
@@ -21,11 +21,11 @@ const Downloads = () => {
       title: "Syllabus",
       icon: BookOpen,
       items: [
-        { name: "B.A. Syllabus 2024-25", size: "1.2 MB", type: "PDF" },
-        { name: "B.Sc. Syllabus 2024-25", size: "1.5 MB", type: "PDF" },
-        { name: "B.Com. Syllabus 2024-25", size: "980 KB", type: "PDF" },
-        { name: "M.A. Syllabus 2024-25", size: "1.1 MB", type: "PDF" },
-        { name: "M.Sc. Syllabus 2024-25", size: "1.3 MB", type: "PDF" },
+        { name: "B.A. Syllabus 2025-26", size: "1.2 MB", type: "PDF" },
+        { name: "B.Sc. Syllabus 2025-26", size: "1.5 MB", type: "PDF" },
+        { name: "B.Com. Syllabus 2025-26", size: "980 KB", type: "PDF" },
+        { name: "M.A. Syllabus 2025-26", size: "1.1 MB", type: "PDF" },
+        { name: "M.Sc. Syllabus 2025-26", size: "1.3 MB", type: "PDF" },
         { name: "B.Ed Syllabus", size: "890 KB", type: "PDF" },
         { name: "LLB Syllabus", size: "1.4 MB", type: "PDF" },
         { name: "D.Pharma Syllabus", size: "756 KB", type: "PDF" },
@@ -35,7 +35,7 @@ const Downloads = () => {
       title: "Prospectus",
       icon: GraduationCap,
       items: [
-        { name: "College Prospectus 2025-26", size: "4.5 MB", type: "PDF" },
+        { name: "College Prospectus 2026-27", size: "4.5 MB", type: "PDF" },
         { name: "B.Ed Prospectus", size: "2.1 MB", type: "PDF" },
         { name: "D.El.Ed Prospectus", size: "1.8 MB", type: "PDF" },
         { name: "Law Faculty Prospectus", size: "2.3 MB", type: "PDF" },
@@ -47,7 +47,7 @@ const Downloads = () => {
       title: "Examination",
       icon: Calendar,
       items: [
-        { name: "Exam Schedule 2024-25", size: "156 KB", type: "PDF" },
+        { name: "Exam Schedule 2025-26", size: "156 KB", type: "PDF" },
         { name: "Exam Form Guidelines", size: "89 KB", type: "PDF" },
         { name: "Previous Year Papers - Arts", size: "3.2 MB", type: "ZIP" },
         { name: "Previous Year Papers - Science", size: "4.1 MB", type: "ZIP" },
@@ -64,7 +64,7 @@ const Downloads = () => {
         { name: "Migration Certificate Form", size: "52 KB", type: "PDF" },
         { name: "TC Application Form", size: "48 KB", type: "PDF" },
         { name: "Scholarship Application Form", size: "98 KB", type: "PDF" },
-        { name: "Fee Structure 2025-26", size: "134 KB", type: "PDF" },
+        { name: "Fee Structure 2026-27", size: "134 KB", type: "PDF" },
       ]
     }
   ];

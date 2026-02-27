@@ -47,9 +47,9 @@ const Admissions = () => {
   ];
 
   const importantDates = [
-    { event: "Admission Form Available", date: "December 2024" },
-    { event: "Last Date for UG Programs", date: "July 2025" },
-    { event: "Last Date for PG Programs", date: "August 2025" },
+    { event: "Admission Form Available", date: "December 2025" },
+    { event: "Last Date for UG Programs", date: "July 2026" },
+    { event: "Last Date for PG Programs", date: "August 2026" },
     { event: "B.Ed Admission", date: "As per University Schedule" },
     { event: "D.Pharma Admission", date: "As per BTE Schedule" },
   ];
@@ -59,7 +59,7 @@ const Admissions = () => {
       {/* Hero Section */}
       <section className="hero-gradient text-primary-foreground py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Admissions 2025-26</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Admissions 2026-27</h1>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-6">
             Begin your academic journey with Shri Ram Adarsh Mahavidyalaya. Direct admission available on first come, first serve basis.
           </p>

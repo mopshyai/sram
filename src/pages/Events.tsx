@@ -46,8 +46,8 @@ const Events = () => {
   const events: Event[] = [
     {
       id: 1,
-      title: "Annual Day Celebration 2025",
-      date: "15 Jan 2025",
+      title: "Annual Day Celebration 2026",
+      date: "15 Jan 2026",
       location: "College Auditorium",
       category: "cultural",
       description: "Grand celebration featuring cultural performances, awards ceremony, and guest lectures. Join us for a day of celebration honoring achievements and showcasing talents of our students.",
@@ -58,7 +58,7 @@ const Events = () => {
     {
       id: 2,
       title: "Republic Day Celebration",
-      date: "26 Jan 2025",
+      date: "26 Jan 2026",
       location: "College Campus",
       category: "cultural",
       description: "Flag hoisting ceremony followed by patriotic performances and march past. A celebration of our nation's heritage with cultural programs.",
@@ -69,8 +69,8 @@ const Events = () => {
     {
       id: 3,
       title: "NCC Camp - Combined Annual Training",
-      date: "20 Dec 2024",
-      endDate: "30 Dec 2024",
+      date: "20 Dec 2025",
+      endDate: "30 Dec 2025",
       location: "District Training Center",
       category: "ncc-nss",
       description: "Annual training camp for NCC cadets with drills, weapon training, and leadership activities. Building discipline and national pride.",
@@ -79,7 +79,7 @@ const Events = () => {
     {
       id: 4,
       title: "NSS Blood Donation Camp",
-      date: "1 Feb 2025",
+      date: "1 Feb 2026",
       location: "College Medical Center",
       category: "ncc-nss",
       description: "Blood donation drive organized by NSS unit in collaboration with Red Cross Society. Save lives through your generous donation.",
@@ -89,9 +89,9 @@ const Events = () => {
     },
     {
       id: 5,
-      title: "Inter-College Sports Meet 2025",
-      date: "10 Jan 2025",
-      endDate: "12 Jan 2025",
+      title: "Inter-College Sports Meet 2026",
+      date: "10 Jan 2026",
+      endDate: "12 Jan 2026",
       location: "College Sports Ground",
       category: "sports",
       description: "Annual sports competition featuring athletics, cricket, volleyball, and indoor games. Compete for glory and showcase your sporting talents.",
@@ -100,7 +100,7 @@ const Events = () => {
     {
       id: 6,
       title: "Guest Lecture on NEP 2020",
-      date: "5 Jan 2025",
+      date: "5 Jan 2026",
       location: "Seminar Hall",
       category: "academic",
       description: "Expert session on National Education Policy 2020 and its implementation in higher education. Understanding the future of Indian education.",
@@ -110,7 +110,7 @@ const Events = () => {
     {
       id: 7,
       title: "Science Exhibition",
-      date: "20 Feb 2025",
+      date: "20 Feb 2026",
       location: "Science Block",
       category: "academic",
       description: "Student projects and working models showcasing innovations in science and technology. Witness creative solutions to real-world problems.",
@@ -121,7 +121,7 @@ const Events = () => {
     {
       id: 8,
       title: "Teacher's Day Celebration",
-      date: "5 Sep 2025",
+      date: "5 Sep 2026",
       location: "College Auditorium",
       category: "cultural",
       description: "Honoring our faculty with cultural programs and appreciation ceremony. A tribute to our mentors and guides.",
@@ -131,7 +131,7 @@ const Events = () => {
     {
       id: 9,
       title: "Yoga Day Camp",
-      date: "21 Jun 2025",
+      date: "21 Jun 2026",
       location: "College Ground",
       category: "sports",
       description: "International Yoga Day celebration with mass yoga session and wellness workshops. Promoting health and mindfulness.",
@@ -141,8 +141,8 @@ const Events = () => {
     {
       id: 10,
       title: "NSS Special Camp - Village Adoption",
-      date: "15 Feb 2025",
-      endDate: "22 Feb 2025",
+      date: "15 Feb 2026",
+      endDate: "22 Feb 2026",
       location: "Adopted Village",
       category: "ncc-nss",
       description: "Week-long camp for community service including cleanliness drives, health camps, and awareness programs. Serving the community.",
@@ -151,7 +151,7 @@ const Events = () => {
     {
       id: 11,
       title: "National Seminar on Environmental Conservation",
-      date: "5 Jun 2025",
+      date: "5 Jun 2026",
       location: "Conference Hall",
       category: "seminars",
       description: "Two-day national seminar featuring research presentations and expert discussions on environmental issues. Addressing climate change challenges.",
@@ -161,7 +161,7 @@ const Events = () => {
     {
       id: 12,
       title: "Career Guidance Workshop",
-      date: "25 Jan 2025",
+      date: "25 Jan 2026",
       location: "Seminar Hall",
       category: "seminars",
       description: "Workshop on career opportunities in education, law, pharmacy, and other fields. Planning your successful future.",

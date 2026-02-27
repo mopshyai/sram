@@ -19,14 +19,14 @@ interface Notice {
 }
 
 const notices: Notice[] = [
-  { id: 1, title: "Admissions Open for Session 2025-26 - Apply Now", date: "Jan 2025", category: "admission", isNew: true, link: "/admissions" },
-  { id: 2, title: "D.Pharma Admission - BTE Code 1708", date: "Jan 2025", category: "admission", isNew: true, link: "/admissions" },
-  { id: 3, title: "Last Date for Fee Submission Extended to 31st Jan", date: "20 Jan 2025", category: "urgent", isNew: true },
-  { id: 4, title: "Annual Day Celebration on 15th February 2025", date: "15 Jan 2025", category: "event", isNew: true, link: "/events" },
-  { id: 5, title: "Mid-Term Exam Schedule Released - Download Now", date: "10 Jan 2025", category: "exam", isNew: false, link: "/downloads" },
+  { id: 1, title: "Admissions Open for Session 2026-27 - Apply Now", date: "Jan 2026", category: "admission", isNew: true, link: "/admissions" },
+  { id: 2, title: "D.Pharma Admission - BTE Code 1708", date: "Jan 2026", category: "admission", isNew: true, link: "/admissions" },
+  { id: 3, title: "Last Date for Fee Submission Extended to 31st Jan", date: "20 Jan 2026", category: "urgent", isNew: true },
+  { id: 4, title: "Annual Day Celebration on 15th February 2026", date: "15 Jan 2026", category: "event", isNew: true, link: "/events" },
+  { id: 5, title: "Mid-Term Exam Schedule Released - Download Now", date: "10 Jan 2026", category: "exam", isNew: false, link: "/downloads" },
   { id: 6, title: "Free Education for Orphan Students - Apply", date: "Ongoing", category: "general", isNew: false, link: "/admissions" },
-  { id: 7, title: "NCC & NSS Enrollment Open for New Batches", date: "2025", category: "general", isNew: false, link: "/ncc-nss" },
-  { id: 8, title: "Guest Lecture on NEP 2020 by Dr. R.K. Sharma", date: "5 Feb 2025", category: "event", isNew: false, link: "/events" },
+  { id: 7, title: "NCC & NSS Enrollment Open for New Batches", date: "2026", category: "general", isNew: false, link: "/ncc-nss" },
+  { id: 8, title: "Guest Lecture on NEP 2020 by Dr. R.K. Sharma", date: "5 Feb 2026", category: "event", isNew: false, link: "/events" },
 ];
 
 const categoryConfig = {
@@ -38,7 +38,7 @@ const categoryConfig = {
 };
 
 const scrollingNews = [
-  "🎓 Admissions Open 2025-26 - Direct Admission Available",
+  "🎓 Admissions Open 2026-27 - Direct Admission Available",
   "📢 D.Pharma (BTE Code-1708) Applications Open",
   "🆓 Free Education for Students Without Parents",
   "🏆 NCC & NSS Units Active - Join Now",
@@ -211,7 +211,7 @@ const NoticeBoard = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                 <GraduationCap className="w-10 h-10 mb-4 text-gold" />
                 <h4 className="font-heading text-xl font-bold mb-2">
-                  Admissions 2025-26
+                  Admissions 2026-27
                 </h4>
                 <p className="text-primary-foreground/80 text-sm mb-4">
                   Direct admission on first-come, first-serve basis. Apply today!
@@ -232,7 +232,7 @@ const NoticeBoard = () => {
                   Quick Downloads
                 </h4>
                 <div className="space-y-2">
-                  {["Admission Form", "Prospectus 2025", "Fee Structure", "Exam Schedule"].map((item, idx) => (
+                  {["Admission Form", "Prospectus 2026", "Fee Structure", "Exam Schedule"].map((item, idx) => (
                     <Link 
                       key={idx}
                       to="/downloads" 
