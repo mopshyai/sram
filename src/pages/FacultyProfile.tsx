@@ -52,7 +52,7 @@ const FacultyProfile = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-navy text-primary-foreground py-12 md:py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-navy text-primary-foreground py-8 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920')] bg-cover bg-center opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-navy/90" />
         
@@ -60,64 +60,65 @@ const FacultyProfile = () => {
           {/* Back Button */}
           <Button 
             variant="ghost" 
-            className="mb-6 text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
+            size="sm"
+            className="mb-4 md:mb-6 text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10 min-h-[40px]"
             onClick={() => navigate(-1)}
           >
             <ChevronLeft className="w-4 h-4 mr-1" />
             Back
           </Button>
 
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
             {/* Profile Image */}
             <div className="relative">
-              <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
+              <div className="w-28 h-28 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl">
                 <img 
                   src={faculty.image} 
                   alt={faculty.name}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <Badge className={`absolute bottom-2 right-2 ${getDepartmentColor(faculty.department)} text-white`}>
+              <Badge className={`absolute bottom-1 right-1 md:bottom-2 md:right-2 text-[10px] md:text-xs ${getDepartmentColor(faculty.department)} text-white`}>
                 {getDepartmentLabel(faculty.department)}
               </Badge>
             </div>
 
             {/* Profile Info */}
             <div className="text-center md:text-left">
-              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-2 animate-fade-in">
+              <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-2 animate-fade-in">
                 {faculty.name}
               </h1>
-              <p className="text-xl md:text-2xl text-primary-foreground/90 mb-4">
+              <p className="text-base md:text-2xl text-primary-foreground/90 mb-3 md:mb-4">
                 {faculty.designation}
               </p>
               
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-primary-foreground/80">
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4" />
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-2 md:gap-4 text-xs md:text-sm text-primary-foreground/80">
+                <div className="flex items-center justify-center md:justify-start gap-1.5">
+                  <GraduationCap className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   <span>{faculty.qualification}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
+                <div className="flex items-center justify-center md:justify-start gap-1.5">
+                  <Clock className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   <span>{faculty.experience} Experience</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4" />
+                <div className="flex items-center justify-center md:justify-start gap-1.5">
+                  <Award className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   <span>{faculty.specialization}</span>
                 </div>
               </div>
 
-              {/* Contact Buttons */}
-              <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
-                <Button asChild variant="secondary" className="bg-white/20 hover:bg-white/30 text-white">
+              {/* Contact Buttons - stacked on mobile */}
+              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2 md:gap-3 mt-4 md:mt-6">
+                <Button asChild variant="secondary" size="sm" className="bg-white/20 hover:bg-white/30 text-white min-h-[40px] text-xs md:text-sm">
                   <a href={`mailto:${faculty.email}`}>
-                    <Mail className="w-4 h-4 mr-2" />
+                    <Mail className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1.5 md:mr-2" />
                     {faculty.email}
                   </a>
                 </Button>
                 {faculty.phone && (
-                  <Button asChild variant="secondary" className="bg-white/20 hover:bg-white/30 text-white">
+                  <Button asChild variant="secondary" size="sm" className="bg-white/20 hover:bg-white/30 text-white min-h-[40px] text-xs md:text-sm">
                     <a href={`tel:${faculty.phone}`}>
-                      <Phone className="w-4 h-4 mr-2" />
+                      <Phone className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1.5 md:mr-2" />
                       {faculty.phone}
                     </a>
                   </Button>
@@ -129,17 +130,17 @@ const FacultyProfile = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 bg-background">
+      <section className="py-6 md:py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
             {/* Main Content Area */}
             <div className="lg:col-span-2">
-              <Tabs defaultValue="about" className="space-y-6">
+              <Tabs defaultValue="about" className="space-y-4 md:space-y-6">
                 <TabsList className="w-full justify-start bg-muted/50 p-1 overflow-x-auto flex-nowrap">
-                  <TabsTrigger value="about" className="min-w-max">About</TabsTrigger>
-                  <TabsTrigger value="publications" className="min-w-max">Publications</TabsTrigger>
-                  <TabsTrigger value="achievements" className="min-w-max">Achievements</TabsTrigger>
-                  <TabsTrigger value="education" className="min-w-max">Education</TabsTrigger>
+                  <TabsTrigger value="about" className="min-w-max text-xs md:text-sm">About</TabsTrigger>
+                  <TabsTrigger value="publications" className="min-w-max text-xs md:text-sm">Publications</TabsTrigger>
+                  <TabsTrigger value="achievements" className="min-w-max text-xs md:text-sm">Achievements</TabsTrigger>
+                  <TabsTrigger value="education" className="min-w-max text-xs md:text-sm">Education</TabsTrigger>
                 </TabsList>
 
                 {/* About Tab */}
@@ -210,24 +211,24 @@ const FacultyProfile = () => {
                     </CardHeader>
                     <CardContent>
                       {faculty.publications && faculty.publications.length > 0 ? (
-                        <div className="space-y-4">
+                        <div className="space-y-3 md:space-y-4">
                           {faculty.publications.map((pub, i) => (
                             <div 
                               key={i} 
-                              className="p-4 rounded-lg bg-muted/50 border border-border hover:border-primary/30 transition-colors"
+                              className="p-3 md:p-4 rounded-lg bg-muted/50 border border-border hover:border-primary/30 transition-colors"
                             >
-                              <div className="flex items-start justify-between gap-4">
-                                <div>
-                                  <h4 className="font-medium text-foreground mb-1">{pub.title}</h4>
-                                  <p className="text-sm text-muted-foreground">{pub.journal}</p>
+                              <div className="space-y-2 md:space-y-0 md:flex md:items-start md:justify-between md:gap-4">
+                                <div className="min-w-0">
+                                  <h4 className="font-medium text-foreground text-sm md:text-base mb-1">{pub.title}</h4>
+                                  <p className="text-xs md:text-sm text-muted-foreground">{pub.journal}</p>
                                 </div>
-                                <div className="flex flex-col items-end gap-1">
-                                  <Badge variant="secondary" className="text-xs">
+                                <div className="flex items-center gap-1.5 md:flex-col md:items-end md:gap-1 shrink-0">
+                                  <Badge variant="secondary" className="text-[10px] md:text-xs">
                                     {pub.year}
                                   </Badge>
                                   <Badge 
                                     variant="outline" 
-                                    className={`text-xs capitalize ${
+                                    className={`text-[10px] md:text-xs capitalize ${
                                       pub.type === 'journal' ? 'border-blue-500 text-blue-600' :
                                       pub.type === 'book' ? 'border-green-500 text-green-600' :
                                       'border-amber-500 text-amber-600'
@@ -260,23 +261,23 @@ const FacultyProfile = () => {
                     </CardHeader>
                     <CardContent>
                       {faculty.achievements && faculty.achievements.length > 0 ? (
-                        <div className="space-y-4">
+                        <div className="space-y-3 md:space-y-4">
                           {faculty.achievements.map((achievement, i) => (
                             <div 
                               key={i} 
-                              className="flex gap-4 p-4 rounded-lg bg-gradient-to-r from-gold/10 to-transparent border border-gold/20"
+                              className="flex gap-3 md:gap-4 p-3 md:p-4 rounded-lg bg-gradient-to-r from-gold/10 to-transparent border border-gold/20"
                             >
-                              <div className="shrink-0 w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
-                                <Trophy className="w-6 h-6 text-gold" />
+                              <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gold/20 flex items-center justify-center">
+                                <Trophy className="w-5 h-5 md:w-6 md:h-6 text-gold" />
                               </div>
-                              <div>
-                                <div className="flex items-center gap-2 mb-1">
-                                  <h4 className="font-medium text-foreground">{achievement.title}</h4>
-                                  <Badge variant="secondary" className="text-xs bg-gold/20 text-gold-foreground">
+                              <div className="min-w-0">
+                                <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mb-1">
+                                  <h4 className="font-medium text-foreground text-sm md:text-base">{achievement.title}</h4>
+                                  <Badge variant="secondary" className="text-[10px] md:text-xs bg-gold/20 text-gold-foreground">
                                     {achievement.year}
                                   </Badge>
                                 </div>
-                                <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                                <p className="text-xs md:text-sm text-muted-foreground">{achievement.description}</p>
                               </div>
                             </div>
                           ))}
