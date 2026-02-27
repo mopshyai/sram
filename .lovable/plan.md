@@ -1,152 +1,39 @@
 
 
-## Plan: Create Dedicated Faculty Page with Full Listings and Search
+## Plan: Update All Year References from 2025-26 to 2026-27
 
-### Overview
-Create a new `/faculty` page with comprehensive faculty listings, featuring search functionality, department filters, and detailed profile cards. The page will follow the existing design patterns used in `Departments.tsx` and `About.tsx`.
+### Scope
+Update all academic year references across the entire website. This involves changing:
+- **"2025-26" → "2026-27"** (admission session references)
+- **"2024-25" → "2025-26"** (syllabus, prospectus, exam schedules)
+- **"2025" → "2026"** in event dates and admission deadlines
+- **"2024" → "2025"** in academic calendar months and event dates
+- **"© 2025" → "© 2026"** in footer
 
-### Files to Create/Modify
+### Files to Modify (11 files)
 
----
+1. **`src/pages/Index.tsx`** — "Admissions 2025-26" → "Admissions 2026-27", ticker text, event dates bumped by 1 year
 
-### 1. Create `src/pages/Faculty.tsx` (New File)
+2. **`src/pages/Admissions.tsx`** — Hero title "2025-26" → "2026-27", important dates (Dec 2024→Dec 2025, July 2025→July 2026, Aug 2025→Aug 2026)
 
-A dedicated page with the following features:
+3. **`src/pages/AcademicCalendar.tsx`** — Title "2024-25" → "2025-26", all month headers and dates bumped by 1 year (July 2024→July 2025, etc.)
 
-**Header Section:**
-- Hero banner with maroon gradient (matching other pages)
-- Page title "Our Faculty" with descriptive subtitle
-- Statistics bar showing total faculty count, departments, and experience
+4. **`src/pages/Events.tsx`** — All event dates bumped by 1 year (Jan 2025→Jan 2026, Dec 2024→Dec 2025, etc.)
 
-**Search & Filter Section:**
-- Search input with icon for filtering by name, designation, or qualification
-- Department filter pills (All, Education, Law, Pharmacy, Arts & Science, Commerce)
-- Results count indicator
+5. **`src/pages/Timetable.tsx`** — Exam schedule dates bumped by 1 year (March 2025→March 2026, etc.)
 
-**Faculty Grid:**
-- Responsive grid layout (1 col mobile, 2 col tablet, 3-4 col desktop)
-- Enhanced faculty cards with:
-  - Profile image with hover zoom effect
-  - Name, designation, department badge
-  - Qualification and experience
-  - Email and phone contact
-  - Specialization/subjects taught (new field)
-  - "View Profile" button for future expansion
+6. **`src/pages/Downloads.tsx`** — Syllabus names "2024-25" → "2025-26", exam schedule "2024-25" → "2025-26"
 
-**Empty State:**
-- Friendly message when no results match search/filter
+7. **`src/pages/Prospectus.tsx`** — "Prospectus 2024-25" → "Prospectus 2025-26"
 
-**Call-to-Action Section:**
-- Link to Departments page
-- Link to Contact for inquiries
+8. **`src/pages/Results.tsx`** — Any year references bumped by 1 year
 
----
+9. **`src/pages/Scholarships.tsx`** — Any year references bumped by 1 year
 
-### 2. Expand Faculty Data
+10. **`src/components/layout/Footer.tsx`** — "© 2025" → "© 2026"
 
-Create a more comprehensive faculty dataset with additional fields:
+11. **`src/components/NoticeBoard.tsx`** — Any year references in announcements bumped by 1 year
 
-```typescript
-interface FacultyMember {
-  id: number;
-  name: string;
-  designation: string;
-  department: string;
-  qualification: string;
-  experience: string;
-  specialization: string;
-  subjects: string[];
-  image: string;
-  email: string;
-  phone?: string;
-}
-```
-
-Add more faculty members (12-16 total) across all departments for a realistic listing.
-
----
-
-### 3. Modify `src/App.tsx`
-
-Add route for the new Faculty page:
-- Import Faculty component
-- Add `<Route path="/faculty" element={<Faculty />} />`
-
----
-
-### 4. Modify `src/components/layout/Header.tsx`
-
-Add Faculty link to navigation:
-- Add "Faculty" under the "About" dropdown menu
-- Path: `/faculty`
-
----
-
-### 5. Update `src/components/FacultyDirectory.tsx` (Homepage Component)
-
-Update the "View All" button to link to `/faculty` instead of `/departments`.
-
----
-
-### Page Layout Structure
-
-```text
-+----------------------------------------------------------+
-|                    HERO SECTION                           |
-|  "Our Faculty" - Meet our dedicated faculty members       |
-+----------------------------------------------------------+
-|  [50+ Faculty]  [6 Departments]  [500+ Years Combined]    |
-+----------------------------------------------------------+
-|                                                           |
-|  [Search icon] Search faculty by name...                  |
-|                                                           |
-|  [All] [Education] [Law] [Pharmacy] [Arts] [Commerce]     |
-|                                                           |
-|  Showing X of Y faculty members                           |
-+----------------------------------------------------------+
-|                                                           |
-|  +--------+  +--------+  +--------+  +--------+          |
-|  | Photo  |  | Photo  |  | Photo  |  | Photo  |          |
-|  | Name   |  | Name   |  | Name   |  | Name   |          |
-|  | Dept   |  | Dept   |  | Dept   |  | Dept   |          |
-|  | Quals  |  | Quals  |  | Quals  |  | Quals  |          |
-|  | Email  |  | Email  |  | Email  |  | Email  |          |
-|  +--------+  +--------+  +--------+  +--------+          |
-|                                                           |
-+----------------------------------------------------------+
-|              CTA: Contact Department Heads                |
-+----------------------------------------------------------+
-```
-
----
-
-### Technical Details
-
-**Search Implementation:**
-- Client-side filtering using `useState`
-- Debounced search input (optional, simple filter for now)
-- Case-insensitive matching on name, designation, qualification, and specialization
-
-**Filter Logic:**
-```typescript
-const filteredFaculty = facultyData.filter(f => {
-  const matchesDepartment = activeFilter === "all" || f.department === activeFilter;
-  const matchesSearch = searchQuery === "" || 
-    f.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    f.designation.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    f.qualification.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    f.specialization.toLowerCase().includes(searchQuery.toLowerCase());
-  return matchesDepartment && matchesSearch;
-});
-```
-
-**Styling:**
-- Uses existing Tailwind classes and shadcn/ui components
-- Follows academic color palette (maroon, navy, gold)
-- Mobile-first responsive design
-- Animations: `animate-fade-in` with staggered delays
-
-**Components Used:**
-- Layout, Card, Button, Input (from shadcn/ui)
-- Lucide icons: Search, GraduationCap, Mail, Phone, Users, etc.
+### Approach
+Systematic find-and-replace across all files, replacing every instance of year references while preserving formatting and context. No structural changes—purely text updates.
 
