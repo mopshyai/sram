@@ -93,6 +93,16 @@ const NoticeBoard = () => {
     );
   }
 
+  if (notices.length === 0) {
+    return (
+      <section className="py-12 md:py-16 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">No notices available at the moment.</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
