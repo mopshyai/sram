@@ -30,7 +30,7 @@ const Index = () => {
   }, []);
   
   const stats = [
-    { icon: Users, value: "2000+", label: "Students" },
+    { icon: Users, value: "2100+", label: "Students" },
     { icon: BookOpen, value: "25+", label: "Programs" },
     { icon: Award, value: "15+", label: "Years Legacy" },
     { icon: Building, value: "5 Acre", label: "Campus" },

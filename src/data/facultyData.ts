@@ -60,7 +60,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Educational Psychology",
     subjects: ["Educational Psychology", "Curriculum Development"],
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-    email: "principal@sram.edu.in",
+    email: "principal@sram.ac.in",
     phone: "9837320170",
     bio: "Dr. Rajesh Kumar Sharma is a distinguished academician with over 25 years of experience in the field of education. As the Principal of Shri Ram Adarsh Mahavidyalaya, he has been instrumental in shaping the institution's academic policies and fostering a culture of excellence. His research in Educational Psychology has contributed significantly to understanding learning behaviors in higher education.",
     education: [
@@ -91,7 +91,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Hindi Literature",
     subjects: ["Hindi Literature", "Modern Poetry"],
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face",
-    email: "sunita.v@sram.edu.in",
+    email: "sunita.v@sram.ac.in",
     bio: "Prof. Sunita Verma is a renowned scholar of Hindi Literature with a deep understanding of modern and classical Hindi poetry. Her research focuses on the evolution of Hindi poetry from Bhakti Kal to contemporary times. She has authored multiple books and research papers that are widely referenced in academic circles.",
     education: [
       { degree: "Ph.D. in Hindi", institution: "Agra University", year: 2008 },
@@ -118,7 +118,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Constitutional Law",
     subjects: ["Constitutional Law", "Human Rights"],
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-    email: "amit.singh@sram.edu.in",
+    email: "amit.singh@sram.ac.in",
     phone: "9876543210",
     bio: "Dr. Amit Singh is an expert in Constitutional Law and Human Rights with a particular focus on fundamental rights and judicial activism in India. He has represented clients in various legal matters and contributes regularly to legal journals and newspapers.",
     education: [
@@ -147,7 +147,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Pharmaceutical Chemistry",
     subjects: ["Pharmaceutical Chemistry", "Drug Design"],
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
-    email: "priya.a@sram.edu.in",
+    email: "priya.a@sram.ac.in",
     bio: "Dr. Priya Agarwal heads the Department of Pharmacy and specializes in Pharmaceutical Chemistry and Drug Design. Her research focuses on developing novel drug compounds for treating chronic diseases. She has secured multiple research grants and has patents to her name.",
     education: [
       { degree: "Ph.D. in Pharmaceutical Chemistry", institution: "BITS Pilani", year: 2012 },
@@ -176,7 +176,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Financial Management",
     subjects: ["Financial Accounting", "Business Management"],
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-    email: "vikram.y@sram.edu.in",
+    email: "vikram.y@sram.ac.in",
     bio: "Prof. Vikram Yadav brings a unique blend of academic excellence and industry experience to the Commerce department. With an MBA and extensive teaching experience, he specializes in Financial Management and has consulted for various businesses on financial strategies.",
     education: [
       { degree: "MBA (Finance)", institution: "IIM Lucknow", year: 2010 },
@@ -203,7 +203,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Special Education",
     subjects: ["Special Education", "Inclusive Teaching"],
     image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face",
-    email: "meena.k@sram.edu.in",
+    email: "meena.k@sram.ac.in",
     bio: "Dr. Meena Kumari is a passionate advocate for inclusive education and specializes in Special Education. Her work focuses on developing teaching methodologies for students with learning disabilities and ensuring equal educational opportunities for all.",
     education: [
       { degree: "Ph.D. in Special Education", institution: "NCERT, Delhi", year: 2016 },
@@ -230,7 +230,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Quantum Physics",
     subjects: ["Physics", "Applied Mathematics"],
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face",
-    email: "ramesh.c@sram.edu.in",
+    email: "ramesh.c@sram.ac.in",
     bio: "Prof. Ramesh Chandra is a veteran educator with two decades of experience teaching Physics. His expertise in Quantum Physics and Applied Mathematics has inspired generations of students. He is known for his ability to simplify complex concepts and make physics accessible to all students.",
     education: [
       { degree: "M.Sc. in Physics", institution: "Allahabad University", year: 2002 },
@@ -257,7 +257,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Criminal Law",
     subjects: ["Criminal Law", "Evidence Law"],
     image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=300&h=300&fit=crop&crop=face",
-    email: "kavita.m@sram.edu.in",
+    email: "kavita.m@sram.ac.in",
     bio: "Dr. Kavita Mishra specializes in Criminal Law and Evidence Law. She has extensive experience in legal practice and brings real-world case studies to the classroom. Her research focuses on criminal justice reform and evidence admissibility in Indian courts.",
     education: [
       { degree: "LL.M. (Criminal Law)", institution: "National Law University, Delhi", year: 2014 },
@@ -283,7 +283,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Pharmacology",
     subjects: ["Pharmacology", "Clinical Pharmacy"],
     image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face",
-    email: "suresh.p@sram.edu.in",
+    email: "suresh.p@sram.ac.in",
     phone: "9123456789",
     bio: "Dr. Suresh Patel is an expert in Pharmacology with a focus on clinical applications. His research centers on drug interactions and patient safety in clinical settings. He has collaborated with hospitals for clinical research and drug trials.",
     education: [
@@ -312,7 +312,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Taxation & Auditing",
     subjects: ["Taxation", "Auditing", "Cost Accounting"],
     image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=300&h=300&fit=crop&crop=face",
-    email: "anita.s@sram.edu.in",
+    email: "anita.s@sram.ac.in",
     bio: "Prof. Anita Saxena is a Chartered Accountant turned academician who brings practical expertise in Taxation and Auditing. She provides students with real-world insights into tax planning and audit procedures, preparing them for professional accounting careers.",
     education: [
       { degree: "Ph.D. in Commerce", institution: "Delhi University", year: 2018 },
@@ -339,7 +339,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Educational Technology",
     subjects: ["Educational Technology", "Research Methodology"],
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=face",
-    email: "manoj.t@sram.edu.in",
+    email: "manoj.t@sram.ac.in",
     bio: "Dr. Manoj Tiwari is a pioneer in Educational Technology with over two decades of experience. He has been instrumental in introducing digital learning tools in the institution and has conducted extensive research on the effectiveness of technology in education.",
     education: [
       { degree: "Ph.D. in Education", institution: "BHU Varanasi", year: 2005 },
@@ -367,7 +367,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "English Literature",
     subjects: ["English Literature", "Communication Skills"],
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&crop=face",
-    email: "neha.g@sram.edu.in",
+    email: "neha.g@sram.ac.in",
     bio: "Prof. Neha Gupta is a dynamic English Literature faculty who focuses on making classical literature relevant to modern students. She emphasizes communication skills development and has designed special courses for employability enhancement.",
     education: [
       { degree: "M.A. in English", institution: "Jamia Millia Islamia, Delhi", year: 2015 },
@@ -394,7 +394,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "International Law",
     subjects: ["International Law", "Jurisprudence"],
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face",
-    email: "ravi.s@sram.edu.in",
+    email: "ravi.s@sram.ac.in",
     phone: "9988776655",
     bio: "Dr. Ravi Shankar is a distinguished legal scholar and the Head of the Law Department with nearly three decades of experience. His expertise in International Law and Jurisprudence has made him a sought-after expert for legal opinions and policy formulation.",
     education: [
@@ -426,7 +426,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Pharmaceutical Management",
     subjects: ["Hospital Pharmacy", "Pharma Marketing"],
     image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face",
-    email: "deepa.s@sram.edu.in",
+    email: "deepa.s@sram.ac.in",
     bio: "Prof. Deepa Sharma brings a unique combination of pharmaceutical science and business management expertise. Her focus on Pharmaceutical Management prepares students for leadership roles in the pharma industry, covering hospital pharmacy operations and marketing strategies.",
     education: [
       { degree: "MBA (Pharma Management)", institution: "NIPER Mohali", year: 2012 },
@@ -453,7 +453,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Banking & Finance",
     subjects: ["Banking", "Corporate Finance", "Economics"],
     image: "https://images.unsplash.com/photo-1556157382-97ede2916cd9?w=300&h=300&fit=crop&crop=face",
-    email: "arun.k@sram.edu.in",
+    email: "arun.k@sram.ac.in",
     phone: "9876512340",
     bio: "Dr. Arun Kumar leads the Commerce Department with expertise in Banking and Finance. His research on banking sector reforms and financial inclusion has been widely published. He has consulted for banks and financial institutions on policy matters.",
     education: [
@@ -483,7 +483,7 @@ export const facultyData: FacultyMember[] = [
     specialization: "Medieval Indian History",
     subjects: ["Indian History", "World History"],
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
-    email: "shalini.j@sram.edu.in",
+    email: "shalini.j@sram.ac.in",
     bio: "Prof. Shalini Jain is a passionate historian specializing in Medieval Indian History. Her research focuses on the Mughal period and cultural exchanges. She regularly organizes heritage walks and museum visits for students to make history come alive.",
     education: [
       { degree: "Ph.D. in History", institution: "JNU Delhi", year: 2017 },

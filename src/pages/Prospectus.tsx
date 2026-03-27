@@ -40,7 +40,7 @@ const Prospectus = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <BookOpen className="h-5 w-5 text-primary" />
-                    Prospectus 2025-26
+                    Prospectus 2026-27
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -50,7 +50,7 @@ const Prospectus = () => {
                       <h3 className="text-2xl font-heading font-bold mb-2">
                         Shri Ram Adarsh Mahavidyalaya
                       </h3>
-                      <p className="text-sm opacity-80">Prospectus 2025-26</p>
+                      <p className="text-sm opacity-80">Prospectus 2026-27</p>
                       <p className="text-xs mt-4 opacity-60">Panwari, Sikandra, Agra</p>
                     </div>
                   </div>

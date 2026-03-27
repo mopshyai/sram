@@ -69,7 +69,7 @@ const AcademicCalendar = () => {
         <div className="bg-primary py-16">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-4">
-              Academic Calendar 2025-26
+              Academic Calendar 2026-27
             </h1>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto">
               Important dates, events, and examination schedules

@@ -188,7 +188,7 @@ const Header = () => {
             {/* Right - CTA */}
             <div className="flex items-center gap-2 sm:gap-3">
               <Button asChild className="hidden md:inline-flex bg-gold hover:bg-gold-light text-gold-foreground font-semibold pulse-glow">
-                <Link to="/admissions">Admissions 2025-26</Link>
+                <Link to="/admissions">Admissions 2026-27</Link>
               </Button>
               
               {/* Mobile Menu Button */}
@@ -312,7 +312,7 @@ const Header = () => {
               <li className="pt-4">
                 <Button asChild className="w-full h-12 text-base bg-gold hover:bg-gold-light text-gold-foreground">
                   <Link to="/admissions" onClick={() => setMobileMenuOpen(false)}>
-                    Admissions 2025-26
+                    Admissions 2026-27
                   </Link>
                 </Button>
               </li>
