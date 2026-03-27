@@ -15,4 +15,28 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-select', '@radix-ui/react-switch'],
+          'admin': [
+            './src/pages/admin/AdminDashboard',
+            './src/pages/admin/AdminNotices',
+            './src/pages/admin/AdminEvents',
+            './src/pages/admin/AdminGallery',
+            './src/pages/admin/AdminDownloads',
+            './src/pages/admin/AdminFaculty',
+            './src/pages/admin/AdminMessages',
+            './src/pages/admin/AdminBanners',
+            './src/pages/admin/AdminFeeStructure',
+            './src/pages/admin/AdminScholarships',
+            './src/pages/admin/AdminSamplePapers',
+          ],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 }));
