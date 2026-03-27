@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const registrationSchema = z.object({
   fullName: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
@@ -89,17 +90,40 @@ export const EventRegistrationForm = ({
 
   const onSubmit = async (data: RegistrationFormData) => {
     setIsSubmitting(true);
-    
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    
-    toast({
-      title: "Registration Successful!",
-      description: `You have been registered for ${eventTitle}.`,
-    });
+
+    try {
+      const { error } = await supabase
+        .from('event_registrations')
+        .insert([
+          {
+            event_title: eventTitle,
+            event_date: eventDate,
+            full_name: data.fullName,
+            email: data.email,
+            phone: data.phone,
+            department: data.department,
+            year_of_study: data.yearOfStudy,
+            additional_info: data.additionalInfo || null,
+          },
+        ]);
+
+      if (error) throw error;
+
+      setIsSuccess(true);
+      toast({
+        title: "Registration Successful!",
+        description: `You have been registered for ${eventTitle}.`,
+      });
+    } catch (error) {
+      console.error('Error submitting registration:', error);
+      toast({
+        title: "Registration Failed",
+        description: "There was an error submitting your registration. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {

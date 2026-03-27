@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Bell, Calendar, ChevronRight, AlertCircle, Megaphone, 
+import {
+  Bell, Calendar, ChevronRight, AlertCircle, Megaphone,
   GraduationCap, FileText, Clock, ArrowRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase, type Notice as SupabaseNotice } from "@/lib/supabase";
 
 interface Notice {
   id: number;
@@ -17,17 +18,6 @@ interface Notice {
   isNew: boolean;
   link?: string;
 }
-
-const notices: Notice[] = [
-  { id: 1, title: "Admissions Open for Session 2026-27 - Apply Now", date: "Jan 2026", category: "admission", isNew: true, link: "/admissions" },
-  { id: 2, title: "D.Pharma Admission - BTE Code 1708", date: "Jan 2026", category: "admission", isNew: true, link: "/admissions" },
-  { id: 3, title: "Last Date for Fee Submission Extended to 31st Jan", date: "20 Jan 2026", category: "urgent", isNew: true },
-  { id: 4, title: "Annual Day Celebration on 15th February 2026", date: "15 Jan 2026", category: "event", isNew: true, link: "/events" },
-  { id: 5, title: "Mid-Term Exam Schedule Released - Download Now", date: "10 Jan 2026", category: "exam", isNew: false, link: "/downloads" },
-  { id: 6, title: "Free Education for Orphan Students - Apply", date: "Ongoing", category: "general", isNew: false, link: "/admissions" },
-  { id: 7, title: "NCC & NSS Enrollment Open for New Batches", date: "2026", category: "general", isNew: false, link: "/ncc-nss" },
-  { id: 8, title: "Guest Lecture on NEP 2020 by Dr. R.K. Sharma", date: "5 Feb 2026", category: "event", isNew: false, link: "/events" },
-];
 
 const categoryConfig = {
   admission: { icon: GraduationCap, color: "bg-emerald-500", label: "Admission" },
@@ -49,15 +39,59 @@ const scrollingNews = [
 const NoticeBoard = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [notices, setNotices] = useState<Notice[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch notices from Supabase
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('notices')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        if (data) {
+          const formattedNotices: Notice[] = data.map((notice: SupabaseNotice) => ({
+            id: notice.id,
+            title: notice.title,
+            date: notice.date,
+            category: notice.category,
+            isNew: notice.is_new,
+            link: notice.link,
+          }));
+          setNotices(formattedNotices);
+        }
+      } catch (error) {
+        console.error('Error fetching notices:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNotices();
+  }, []);
 
   // Auto-scroll through notices
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || notices.length === 0) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % notices.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, notices.length]);
+
+  if (loading) {
+    return (
+      <section className="py-12 md:py-16 bg-gradient-to-b from-muted/30 to-background">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">Loading notices...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-12 md:py-16 bg-gradient-to-b from-muted/30 to-background">

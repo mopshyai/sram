@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  GraduationCap, Mail, Phone, ChevronRight, 
+import {
+  GraduationCap, Mail, Phone, ChevronRight,
   BookOpen, Shield, Microscope, Building, Users
 } from "lucide-react";
+import { supabase, type Faculty as SupabaseFaculty } from "@/lib/supabase";
 
 const departments = [
   { id: "all", name: "All Faculty", icon: Users },
@@ -16,91 +17,46 @@ const departments = [
   { id: "commerce", name: "Commerce", icon: Building },
 ];
 
-const facultyMembers = [
-  {
-    id: 1,
-    name: "Dr. Rajesh Kumar Sharma",
-    designation: "Principal & HOD",
-    department: "education",
-    qualification: "Ph.D., M.Ed., B.Ed.",
-    experience: "25+ Years",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-    email: "principal@sram.edu.in",
-  },
-  {
-    id: 2,
-    name: "Prof. Sunita Verma",
-    designation: "Associate Professor",
-    department: "arts",
-    qualification: "M.A., Ph.D. (Hindi)",
-    experience: "18 Years",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face",
-    email: "sunita.v@sram.edu.in",
-  },
-  {
-    id: 3,
-    name: "Dr. Amit Singh",
-    designation: "Assistant Professor",
-    department: "law",
-    qualification: "LL.M., Ph.D.",
-    experience: "12 Years",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-    email: "amit.singh@sram.edu.in",
-  },
-  {
-    id: 4,
-    name: "Dr. Priya Agarwal",
-    designation: "HOD - Pharmacy",
-    department: "pharmacy",
-    qualification: "M.Pharm, Ph.D.",
-    experience: "15 Years",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
-    email: "priya.a@sram.edu.in",
-  },
-  {
-    id: 5,
-    name: "Prof. Vikram Yadav",
-    designation: "Associate Professor",
-    department: "commerce",
-    qualification: "M.Com, MBA, NET",
-    experience: "14 Years",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-    email: "vikram.y@sram.edu.in",
-  },
-  {
-    id: 6,
-    name: "Dr. Meena Kumari",
-    designation: "Assistant Professor",
-    department: "education",
-    qualification: "M.Ed., Ph.D.",
-    experience: "10 Years",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face",
-    email: "meena.k@sram.edu.in",
-  },
-  {
-    id: 7,
-    name: "Prof. Ramesh Chandra",
-    designation: "Senior Lecturer",
-    department: "arts",
-    qualification: "M.Sc. (Physics), B.Ed.",
-    experience: "20 Years",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face",
-    email: "ramesh.c@sram.edu.in",
-  },
-  {
-    id: 8,
-    name: "Dr. Kavita Mishra",
-    designation: "Assistant Professor",
-    department: "law",
-    qualification: "LL.B., LL.M.",
-    experience: "8 Years",
-    image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=300&h=300&fit=crop&crop=face",
-    email: "kavita.m@sram.edu.in",
-  },
-];
+interface FacultyMember {
+  id: number;
+  name: string;
+  designation: string;
+  department: string;
+  qualification: string;
+  experience: string;
+  image: string;
+  email: string;
+  phone?: string;
+}
 
 const FacultyDirectory = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [facultyMembers, setFacultyMembers] = useState<FacultyMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch faculty from Supabase
+  useEffect(() => {
+    const fetchFaculty = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('faculty')
+          .select('*')
+          .order('name', { ascending: true });
+
+        if (error) throw error;
+
+        if (data) {
+          setFacultyMembers(data as FacultyMember[]);
+        }
+      } catch (error) {
+        console.error('Error fetching faculty:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFaculty();
+  }, []);
 
   const filteredFaculty = activeFilter === "all" 
     ? facultyMembers 
@@ -120,6 +76,16 @@ const FacultyDirectory = () => {
   const getDepartmentLabel = (dept: string) => {
     return departments.find(d => d.id === dept)?.name || dept;
   };
+
+  if (loading) {
+    return (
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground">Loading faculty...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 bg-muted/30">
